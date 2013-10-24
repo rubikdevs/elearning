@@ -57,7 +57,19 @@ class Users extends CActiveRecord
 			'password' => 'Password'
 		);
 	}
+	public function getHash($password)
+	{
+		return sha1($password);
+	}
 
+	public function hashPassword()
+	{
+		$this->password = $this->getHash($this->password);
+	}
+	public function validatePassword($password)
+	{
+		return $this->getHash($password)===$this->password;
+	}
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
