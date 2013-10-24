@@ -1,5 +1,5 @@
 Last updates: 24/10/2013 01:40
-Contributor: brychan
+contributor: brychan<br>
 Brief Description: Ya debería estar todo los issues arreglados (por fin):
 	- Log-in working w/SHA1 passwords.
 	- E-mail Column dumped.
