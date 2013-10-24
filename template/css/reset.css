@@ -1,0 +1,108 @@
+*{
+	margin:0px;
+	padding:0px;
+	font-family:'Droid Sans', sans-serif;
+}
+
+
+body{
+	background-color:#f0f3f5;
+	overflow-x:hidden;
+}
+
+
+
+::selection{
+	color:#fff;
+	background-color:#596772;
+}
+
+::-moz-selection{
+	color:#fff;
+	background-color:#596772;
+}
+
+
+a, a:visited, a:active{
+	text-decoration:none;
+	outline:none;
+}
+
+
+
+.float_l{
+	float:left;
+}
+
+
+
+.float_r{
+	float:right;
+}
+
+
+
+img{
+	border:0px;
+}
+
+
+.clear_fix{
+	clear:both;
+}
+
+
+hr{
+	border-top:1px solid #e5e5e5;
+	margin:5px 0px;
+	color:#FFF;
+}
+
+
+.table {
+    border: 0 none;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+pre {
+    background-color: #FBFBFB;
+    border: 1px dotted #B5B6B3;
+    color: #AAAAAA;
+    font-size: 13px;
+    margin: 7px 0px 15px 0px;
+    padding: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+
+@font-face {
+    font-family: 'OstrichSansMedium';
+    src: url('../fonts/ostrich-regular-webfont.eot');
+    src: url('../fonts/ostrich-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ostrich-regular-webfont.woff') format('woff'),
+         url('../fonts/ostrich-regular-webfont.ttf') format('truetype'),
+         url('../fonts/ostrich-regular-webfont.svg#OstrichSansMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'aller_lightregular';
+    src: url('../fonts/aller_lt-webfont.eot');
+    src: url('../fonts/aller_lt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aller_lt-webfont.woff') format('woff'),
+         url('../fonts/aller_lt-webfont.ttf') format('truetype'),
+         url('../fonts/aller_lt-webfont.svg#aller_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+

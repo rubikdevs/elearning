@@ -1,0 +1,197 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Esthetics Admin - Clean &amp; Responsive Admin Template</title>
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="scripts/script.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script>
+  function initialize() {
+	var fenway = new google.maps.LatLng(42.345573,-71.098326);
+
+	// Note: constructed panorama objects have visible: true
+	// set by default.
+	var panoOptions = {
+	  position: fenway,
+	  addressControlOptions: {
+		position: google.maps.ControlPosition.BOTTOM
+	  },
+	  linksControl: false,
+	  panControl: false,
+	  zoomControlOptions: {
+		style: google.maps.ZoomControlStyle.SMALL
+	  },
+	  enableCloseButton: false
+	};
+
+	var panorama = new google.maps.StreetViewPanorama(
+		document.getElementById('pano'), panoOptions);
+  }
+</script>
+</head>
+
+<body onLoad="initialize()">
+  <nav>
+    <ul>
+       <li>
+         <a href="dashboard.html" title="Dashboard">
+           <i class="icon-map-marker"></i>
+           Dashboard
+         </a>
+       </li>
+       
+       <li>
+         <a href="forms-stuff.html" title="Forms Stuff">
+         <i class="icon-edit"></i>
+           Forms Stuff
+         </a>
+       </li>
+       
+      <li>
+        <a href="dynamic-table.html" title="UI Elements">
+           <i class="icon-random"></i>
+           UI Elements
+        </a>
+      </li>
+       
+       <li>
+         <a href="charts.html" title="Plugins">
+         <i class="icon-cogs"></i>
+           Plugins
+         </a>
+      </li>
+       
+       <li>
+         <a href="popup-alert.html" title="Notifications">
+         <i class="icon-warning-sign"></i>
+           Notifications
+         </a>
+       </li>
+       
+       <li>
+         <a href="google-map.html" class="current" title="Error Pages" >
+         <i class="icon-check"></i>
+           Additional
+         </a>
+       </li>
+    </ul>
+  </nav><!--NAV ENDS HERE-->
+  
+  
+  <aside>
+    
+    <div class="user">
+      <img src="images/user.jpg" alt="Esthetics Admin"/>
+      Akshay Kumar
+      <p>UI Designer / Developer</p>
+    </div>
+   
+    
+    <ul id="main-nav">
+       <li>
+         <a href="#" class="nav-top-item current" > Additional Elements</a>
+         <ul>
+            <li><a href="google-map.html">Weather Google Maps</a></li>
+            <li><a href="google-map-traffic.html">Traffic Google  Maps</a></li>
+            <li><a href="google-map-streetview.html" class="active" > Street view Google Maps</a></li>
+            <li><a href="google-map-aerialrotation.html"> Aerial Rotation Google Maps</a></li>
+         </ul>
+       </li>
+       <li>
+         <a class="nav-top-item" href="#">Coming Soon in v1.1</a>
+       </li>
+      
+    </ul>
+
+    <div class="submenu-footer">
+      <ul class="icons">
+          <li>
+          <a href="#"><i class="icon-off"></i></a>
+          </li>
+          <li>
+          <a href="#" id="messages"><i class="icon-inbox"></i></a>
+           <div class="submenu-footer-tooltip messages_list">
+            <ul class="mail">
+                <li><a href="#"> <strong>10:15</strong>Need your Help!<small>From: John</small></a></li>
+                <li><a href="#"> <strong>9:55</strong>New comment on you theme<small>From: themeforest</small></a></li>
+                <li><a href="#"> <strong>Yest.</strong>Successfull backup<small>From: System</small></a></li>
+                <li class="read"><a href="#"> <strong>2 days</strong>Bug report<small>From: Jane</small></a></li>
+                <li><a href="#"> <strong>08:42</strong>Hi how r u doing today...<small>From: Ajay Kumar</small></a></li>
+                <li class="read"><a href="#"> <strong>10:15</strong>Need your Help!<small>From: John</small></a></li>
+            </ul>
+           <img src="images/icons/arrow_down.png" class="arrow_w" alt="arrow"  /> 
+           </div> <!--SEARCH TOOLTIP ENDS-->
+          </li>
+          <li>
+          <a href="#" id="search"><i class="icon-search"></i></a>
+           <div class="submenu-footer-tooltip search_bar">
+            <input type="text" class="float_l _75" placeholder="Type Here To Search..." /><a href="" class="grey"><i class="icon-search"></i></a><img src="images/icons/arrow_down.png" class="arrow_w" alt="arrow"  />
+           </div> <!--SEARCH TOOLTIP ENDS-->
+          </li>
+      </ul>
+      <span>18 New Tasks</span>
+    </div><!--SUBMENU FOOTER ENDS HERE-->
+    
+  </aside><!--ASIDE ENDS HERE-->
+  
+  
+  <div class="main">
+  
+  <div class="non-shortable-content">
+     <h1>Google Street View</h1>
+     <h6>Google Maps JavaScript API v3 Example: Street View Controls.</h6>  
+  </div>
+    
+  <div class="shortable-content">
+  
+  
+  <div class="box _100">
+    <div class="box-header">
+      Google Street View Maps
+      <i class="icon-remove-sign close" title="Close"></i>
+      <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+      </div>
+    <div class="box-content">
+      
+      <div id="pano" class="map-canvas"></div>
+      
+    </div>
+  </div>  <!--CSS3 Family Tree-->
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  </div><!--SHORTABLECONTENT-ENDS-->
+
+  </div><!--MAIN ENDS-->
+  
+  
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Esthetics Admin - Clean &amp; Responsive Admin Template</title>
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="scripts/script.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+  <nav>
+    <ul>
+       <li>
+         <a href="dashboard.html" title="Dashboard">
+           <i class="icon-map-marker"></i>
+           Dashboard
+         </a>
+       </li>
+       
+       <li>
+         <a href="forms-stuff.html" title="Forms Stuff">
+         <i class="icon-edit"></i>
+           Forms Stuff
+         </a>
+       </li>
+       
+      <li>
+        <a href="dynamic-table.html" title="UI Elements">
+           <i class="icon-random"></i>
+           UI Elements
+        </a>
+      </li>
+       
+       <li>
+         <a href="charts.html" title="Plugins">
+         <i class="icon-cogs"></i>
+           Plugins
+         </a>
+      </li>
+       
+       <li>
+         <a href="popup-alert.html" class="current" title="Notifications">
+         <i class="icon-warning-sign"></i>
+           Notifications
+         </a>
+       </li>
+       
+       <li>
+         <a href="google-map.html" title="Error Pages" >
+         <i class="icon-check"></i>
+           Additional
+         </a>
+       </li>
+    </ul>
+  </nav><!--NAV ENDS HERE-->
+  
+  
+  <aside>
+    
+    <div class="user">
+      <img src="images/user.jpg" alt="Esthetics Admin"/>
+      Akshay Kumar
+      <p>UI Designer / Developer</p>
+    </div>
+   
+    
+    <ul id="main-nav">
+       <li>
+         <a href="#" class="nav-top-item current" > Notifications Examples</a>
+         <ul>
+            <li><a href="popup-alert.html" class="active" > Animated Popup Alerts</a></li>
+            <li><a href="modal_box.html"> Modal Light Box</a></li>
+            <li><a href="sticky_notes.html"> Purrr Sticky Notes </a></li>
+            <li><a href="diolog-box.html"> Static Dialog Boxes </a></li>
+            <li><a href="notification-top.html">Top Fixed Notifications</a></li>
+         </ul>
+       </li>
+       
+       <li>
+         <a href="#" class="nav-top-item current" > Error / Offline Pages</a>
+         <ul>
+            <li><a href="error-page-403.html">403 Page Error</a></li>
+            <li><a href="error-page-404.html">404 Page Error</a></li>
+            <li><a href="error-page-405.html">405 Page Error</a></li>
+            <li><a href="error-page-500.html">500 Page Error</a></li>
+            <li><a href="error-page-503.html">503 Page Error</a></li>
+            <li><a href="offline-page.html">Website Offline Error</a></li>
+         </ul>
+       </li>
+       
+       <li>
+         <a class="nav-top-item" href="#">NO SUBMENU HERE</a>
+       </li>
+       
+    </ul>
+
+    <div class="submenu-footer">
+      <ul class="icons">
+          <li>
+          <a href="#"><i class="icon-off"></i></a>
+          </li>
+          <li>
+          <a href="#" id="messages"><i class="icon-inbox"></i></a>
+           <div class="submenu-footer-tooltip messages_list">
+            <ul class="mail">
+                <li><a href="#"> <strong>10:15</strong>Need your Help!<small>From: John</small></a></li>
+                <li><a href="#"> <strong>9:55</strong>New comment on you theme<small>From: themeforest</small></a></li>
+                <li><a href="#"> <strong>Yest.</strong>Successfull backup<small>From: System</small></a></li>
+                <li class="read"><a href="#"> <strong>2 days</strong>Bug report<small>From: Jane</small></a></li>
+                <li><a href="#"> <strong>08:42</strong>Hi how r u doing today...<small>From: Ajay Kumar</small></a></li>
+                <li class="read"><a href="#"> <strong>10:15</strong>Need your Help!<small>From: John</small></a></li>
+            </ul>
+           <img src="images/icons/arrow_down.png" class="arrow_w" alt="arrow"  /> 
+           </div> <!--SEARCH TOOLTIP ENDS-->
+          </li>
+          <li>
+          <a href="#" id="search"><i class="icon-search"></i></a>
+           <div class="submenu-footer-tooltip search_bar">
+            <input type="text" class="float_l _75" placeholder="Type Here To Search..." /><a href="" class="grey"><i class="icon-search"></i></a><img src="images/icons/arrow_down.png" class="arrow_w" alt="arrow"  />
+           </div> <!--SEARCH TOOLTIP ENDS-->
+          </li>
+      </ul>
+      <span>18 New Tasks</span>
+    </div><!--SUBMENU FOOTER ENDS HERE-->
+    
+  </aside><!--ASIDE ENDS HERE-->
+  
+  
+  <div class="main">
+  
+
+  
+  <div class="non-shortable-content">
+     <h1>Animated Popup Alerts Examples</h1>
+     <h6>Popup alerts example with animation.</h6>  
+  </div>
+  
+  
+  
+   <div class="shortable-content">
+  
+      <div class="box _100">
+        <div class="box-header">
+        Informative Popup Alert
+        <i class="icon-remove-sign close" title="Close"></i>
+        <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+        </div>
+        
+        <div class="box-content padd-10">
+        <p>This is an example for "Simple Alert" you just need to insert "simple-alert" ID to use this alert and you can easly edit its contents.</p>
+        <pre>$.msgbox("jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development.", {type: "info"});</pre>
+        <button id="simple-alert" class="grey">Informative Popup Alert</button>
+        </div>
+      </div><!--INFORMATIVE POPUP ALERT-->
+      
+      
+      
+      <div class="box _100">
+        <div class="box-header">
+        Simple Popup Alert
+        <i class="icon-remove-sign close" title="Close"></i>
+        <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+        </div>
+        
+        <div class="box-content padd-10">
+         <p> This is an example for "Simple Alert" you just need to insert "simple-alert" ID to use this alert and you can easly edit its contents.</p>
+         <pre>$.msgbox("The selection includes process white objects. Overprinting such objects is only useful in combination with transparency effects.");</pre>
+         <button id="attention-alert" class="grey">Simple Popup Alert</button>
+        </div>
+      </div><!--SIMPLE ALERT ENDS-->
+      
+      
+      
+      
+      <div class="box _100">
+        <div class="box-header">
+        Error Popup Alert
+        <i class="icon-remove-sign close" title="Close"></i>
+        <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+        </div>
+        
+        <div class="box-content padd-10">
+         <p> This is an example for "Simple Alert" you just need to insert "simple-alert" ID to use this alert and you can easly edit its contents.</p>
+         <pre>$.msgbox("An error 1053 ocurred while perfoming this service operation on the MySql Server service.", {type: "error"});</pre>
+         <button id="error" class="grey">Error Popup Alert</button>
+        </div>
+      </div><!--ERROR ALERT ENDS-->
+      
+      
+      
+      <div class="box _100">
+        <div class="box-header">
+        Confirmation Popup Alert
+        <i class="icon-remove-sign close" title="Close"></i>
+        <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+        </div>
+        
+        <div class="box-content padd-10">
+         <p> This is an example for "Simple Alert" you just need to insert "simple-alert" ID to use this alert.</p>
+         <pre>$.msgbox("Are you sure that you want to permanently delete the selected element?", {
+	type: "confirm",
+    
+	buttons : [
+        {type: "submit", value: "Yes"},{type: "submit", value: "No"},
+		{type: "cancel", value: "Cancel"}]},
+	
+	function(result) { $("#result2").text(result); });</pre>
+         <button id="confirm" class="grey">Confirmation Popup Alert</button>
+        </div>
+      </div><!--CONFIRMATION ALERT ENDS-->
+      
+      
+      
+      
+      <div class="box _100">
+        <div class="box-header">
+        Basic Form Popup Alert
+        <i class="icon-remove-sign close" title="Close"></i>
+        <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+        </div>
+        
+        <div class="box-content padd-10">
+         <p> This is an example for "Simple Alert" you just need to insert "simple-alert" ID to use this alert.</p>
+         <pre>  $.msgbox("In order to process your request you must provide the following:", {
+    type    : "prompt",
+    name    : "lock",
+    inputs  : [
+      {type: "text",     name: "username", value: "", label: "Username:", required: true},
+      {type: "password", name: "password", value: "", label: "Password:", required: true}
+    ],
+    buttons : [
+      {type: "submit", name: "submit", value: "Sign In"},
+      {type: "cancel", value: "Cancel"}
+    ],
+    form : {
+      active: true,
+      method: 'post',
+      action: 'login.php'
+    }
+  });
+  
+  ev.preventDefault();
+       </pre>
+         <button id="simple_forms" class="grey">Form Popup Alert</button>
+        </div>
+      </div><!--FORM ALERT ENDS-->
+      
+      
+      
+      <div class="box _100">
+        <div class="box-header">
+        Responcive Popup Form Alert
+        <i class="icon-remove-sign close" title="Close"></i>
+        <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+        </div>
+        
+        <div class="box-content padd-10">
+         <p> This is an example for "Simple Alert" you just need to insert "simple-alert" ID to use this alert.</p>
+         <pre>$.msgbox("In order to process your request you must provide the following:", {
+    type    : "prompt",
+    inputs  : [
+      {type: "text",     label: "Insert your Name:", value: "George", required: true},
+      {type: "password", label: "Insert your Password:", required: true}
+    ],
+    buttons : [
+      {type: "submit", value: "OK"},
+      {type: "cancel", value: "Exit"}
+    ]
+  }, function(name, password) {
+    if (name) {
+      $.msgbox("Hello "+name+", your password is "+password+".", {type: "info"});
+    } else {
+      $.msgbox("Bye!", {type: "info"});
+    }
+  });</pre>
+         <button id="form_with_confirm" class="grey">Responcive Form Alert</button>
+        </div>
+      </div><!--RESPONCIVE FORM ALERT ENDS-->
+      
+      
+      
+      
+   </div><!--SHORTABLE CONTENT ENDS HERE-->
+  
+  
+
+  </div><!--MAIN ENDS-->
+</body>
+</html>

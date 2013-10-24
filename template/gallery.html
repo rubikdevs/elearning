@@ -1,0 +1,464 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Esthetics Admin - Clean &amp; Responsive Admin Template</title>
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="scripts/script.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+  <nav>
+    <ul>
+       <li>
+         <a href="dashboard.html" title="Dashboard">
+           <i class="icon-map-marker"></i>
+           Dashboard
+         </a>
+       </li>
+       
+       <li>
+         <a href="forms-stuff.html" title="Forms Stuff">
+         <i class="icon-edit"></i>
+           Forms Stuff
+         </a>
+       </li>
+       
+      <li>
+        <a href="dynamic-table.html" class="current" title="UI Elements">
+           <i class="icon-random"></i>
+           UI Elements
+        </a>
+      </li>
+       
+       <li>
+         <a href="charts.html" title="Plugins">
+         <i class="icon-cogs"></i>
+           Plugins
+         </a>
+      </li>
+       
+       <li>
+         <a href="popup-alert.html" title="Notifications">
+         <i class="icon-warning-sign"></i>
+           Notifications
+         </a>
+       </li>
+       
+       <li>
+         <a href="google-map.html" title="Error Pages" >
+         <i class="icon-check"></i>
+           Additional
+         </a>
+       </li>
+    </ul>
+  </nav><!--NAV ENDS HERE-->
+  
+  
+  <aside>
+    
+    <div class="user">
+      <img src="images/user.jpg" alt="Esthetics Admin"/>
+      Akshay Kumar
+      <p>UI Designer / Developer</p>
+    </div>
+   
+    
+    <ul id="main-nav">
+       <li>
+         <a href="#" class="nav-top-item current" > User Interface Elements</a>
+         <ul>
+            <li><a href="dynamic-table.html"> Dynamic Data Table </a></li>
+            <li><a href="static-table.html"> Static Data Table</a></li>
+            <li><a href="gride.html"> 960 Content Grid </a></li>
+            <li><a href="wizard.html"> Step by Step Wizard  </a></li>
+         </ul>
+       </li>
+       
+       <li>
+         <a href="#" class="nav-top-item current" > Other Interface Elements</a>
+         <ul>
+            <li><a href="gallery.html" class="active" > Image and Video Gallery</a></li>
+            <li><a href="accordion.html"> Jquery Accordion </a></li>
+            <li><a href="tabs.html"> Jquery Tabs </a></li>
+            <li><a href="slider.html"> Jquery Horizontal / Vertical Slider </a></li>
+         </ul>
+       </li>
+      
+       <li>
+         <a href="#" class="nav-top-item current" > Miscellaneous UI Elements</a>
+         <ul>
+            <li><a href="ui-miscellaneous.html"> Miscellaneous UI Elements</a></li>
+            <li><a href="http://www.infynitix.com/" target="_blank">Visit Infynitix.com</a></li>
+            <li><a href="#">Testing Menu no 1</a></li>
+         </ul>
+       </li>
+    </ul>
+
+    <div class="submenu-footer">
+      <ul class="icons">
+          <li>
+          <a href="#"><i class="icon-off"></i></a>
+          </li>
+          <li>
+          <a href="#" id="messages"><i class="icon-inbox"></i></a>
+           <div class="submenu-footer-tooltip messages_list">
+            <ul class="mail">
+                <li><a href="#"> <strong>10:15</strong>Need your Help!<small>From: John</small></a></li>
+                <li><a href="#"> <strong>9:55</strong>New comment on you theme<small>From: themeforest</small></a></li>
+                <li><a href="#"> <strong>Yest.</strong>Successfull backup<small>From: System</small></a></li>
+                <li class="read"><a href="#"> <strong>2 days</strong>Bug report<small>From: Jane</small></a></li>
+                <li><a href="#"> <strong>08:42</strong>Hi how r u doing today...<small>From: Ajay Kumar</small></a></li>
+                <li class="read"><a href="#"> <strong>10:15</strong>Need your Help!<small>From: John</small></a></li>
+            </ul>
+           <img src="images/icons/arrow_down.png" class="arrow_w" alt="arrow"  /> 
+           </div> <!--SEARCH TOOLTIP ENDS-->
+          </li>
+          <li>
+          <a href="#" id="search"><i class="icon-search"></i></a>
+           <div class="submenu-footer-tooltip search_bar">
+            <input type="text" class="float_l _75" placeholder="Type Here To Search..." /><a href="" class="grey"><i class="icon-search"></i></a><img src="images/icons/arrow_down.png" class="arrow_w" alt="arrow"  />
+           </div> <!--SEARCH TOOLTIP ENDS-->
+          </li>
+      </ul>
+      <span>18 New Tasks</span>
+    </div><!--SUBMENU FOOTER ENDS HERE-->
+    
+  </aside><!--ASIDE ENDS HERE-->
+  
+  
+  <div class="main">
+  
+  <div class="non-shortable-content">
+     <h1>Fancybox Image and Video Gallery</h1>
+     <h6>Gallery that extends you support in extending advancement to your vision. To do so use the Gallery.</h6>  
+  </div>
+    
+  <div class="shortable-content">
+  
+     
+    
+      <div class="box _100">
+        <div class="box-header">
+        Image Gallery
+        <i class="icon-remove-sign close" title="Close"></i>
+        <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+        </div>
+        
+        <div class="box-content padd-10">
+         
+          <ul class="imglist">
+			<li>
+				<img src="images/gallery/thumb1.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7042/6974493657_90384ac1a3_b.jpg" class="modal" rel="gallery" title="Summer boat">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+
+			<li>
+				<img src="images/gallery/thumb2.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7207/6986393971_731ab0634d_z.jpg" class="modal" rel="gallery" title="Sozopol bay">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+
+				<img src="images/gallery/thumb3.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7054/6920238194_23de3c19e0.jpg" class="modal" rel="gallery" title="Stones">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb4.jpg" alt="" />
+
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7152/6477087555_c2c678939b_b.jpg" class="modal" rel="gallery" title="Gate">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb1.jpg" alt="" />
+				<ul>
+
+					<li class="view"><a href="http://farm8.staticflickr.com/7042/6974493657_90384ac1a3_b.jpg" class="modal" rel="gallery" title="Summer boat">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb2.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7207/6986393971_731ab0634d_z.jpg" class="modal" rel="gallery" title="Sozopol bay">View</a></li>
+
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb3.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7054/6920238194_23de3c19e0.jpg" class="modal" rel="gallery" title="Stones">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb4.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7152/6477087555_c2c678939b_b.jpg" class="modal" rel="gallery" title="Gate">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb1.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7042/6974493657_90384ac1a3_b.jpg" class="modal" rel="gallery" title="Summer boat">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+
+			
+			<li>
+				<img src="images/gallery/thumb2.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7207/6986393971_731ab0634d_z.jpg" class="modal" rel="gallery" title="Sozopol bay">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+
+				<img src="images/gallery/thumb3.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7054/6920238194_23de3c19e0.jpg" class="modal" rel="gallery" title="Stones">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb4.jpg" alt="" />
+
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7152/6477087555_c2c678939b_b.jpg" class="modal" rel="gallery" title="Gate">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb1.jpg" alt="" />
+				<ul>
+
+					<li class="view"><a href="http://farm8.staticflickr.com/7042/6974493657_90384ac1a3_b.jpg" class="modal" rel="gallery" title="Summer boat">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb2.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7207/6986393971_731ab0634d_z.jpg" class="modal" rel="gallery" title="Sozopol bay">View</a></li>
+
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb3.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7054/6920238194_23de3c19e0.jpg" class="modal" rel="gallery" title="Stones">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb4.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://farm8.staticflickr.com/7152/6477087555_c2c678939b_b.jpg" class="modal" rel="gallery" title="Gate">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+		</ul>
+                     
+        </div>
+      </div><!--IMAGE GALLERY BOX-->
+      
+      
+      
+      
+      
+      
+      <div class="box _100">
+        <div class="box-header">
+        Video Gallery
+        <i class="icon-remove-sign close" title="Close"></i>
+        <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+        </div>
+        
+        <div class="box-content padd-10">
+        
+         <ul class="imglist">
+			<li>
+				<img src="images/gallery/thumb1.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+
+			
+			<li>
+				<img src="images/gallery/thumb2.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+
+				<img src="images/gallery/thumb3.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb4.jpg" alt="" />
+
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb1.jpg" alt="" />
+				<ul>
+
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb2.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb3.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb4.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb1.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+
+			
+			<li>
+				<img src="images/gallery/thumb2.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+
+				<img src="images/gallery/thumb3.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb4.jpg" alt="" />
+
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb1.jpg" alt="" />
+				<ul>
+
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb2.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb3.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<img src="images/gallery/thumb4.jpg" alt="" />
+				<ul>
+					<li class="view"><a href="http://s.ytimg.com/yt/swfbin/watch_as3-vflJs-cKN.swf" class="modal" rel="gallery" title="Video Player">View</a></li>
+					<li class="delete"><a href="#">Delete</a></li>
+				</ul>
+			</li>
+		</ul>
+        
+        </div>
+        
+     </div>
+      
+
+
+
+  </div><!--SHORTABLECONTENT-ENDS-->
+
+  </div><!--MAIN ENDS-->
+</body>
+</html>

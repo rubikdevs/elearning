@@ -1,0 +1,2 @@
+<div class="non-shortable-content"> <h1>404 Page Error</h1> <h6>Oops! Sorry, an error has occured. Page not found!</h6> </div>
+<div class="shortable-content ui-sortable"> <h1 class="error_heading">404</h1> 

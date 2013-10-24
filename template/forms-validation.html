@@ -1,0 +1,242 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Esthetics Admin - Clean &amp; Responsive Admin Template</title>
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="scripts/script.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
+<script>
+	function checkHELLO(field, rules, i, options){
+		if (field.val() != "HELLO") {
+			// this allows to use i18 for the error msgs
+			return options.allrules.validate2fields.alertText;
+		}
+	}
+</script>
+
+</head>
+
+<body>
+  <nav>
+    <ul>
+       <li>
+         <a href="dashboard.html" title="Dashboard">
+           <i class="icon-map-marker"></i>
+           Dashboard
+         </a>
+       </li>
+       
+       <li>
+         <a href="forms-stuff.html" class="current" title="Forms Stuff">
+         <i class="icon-edit"></i>
+           Forms Stuff
+         </a>
+       </li>
+       
+      <li>
+        <a href="dynamic-table.html" title="UI Elements">
+           <i class="icon-random"></i>
+           UI Elements
+        </a>
+      </li>
+       
+       <li>
+         <a href="charts.html" title="Plugins">
+         <i class="icon-cogs"></i>
+           Plugins
+         </a>
+      </li>
+       
+       <li>
+         <a href="popup-alert.html" title="Notifications">
+         <i class="icon-warning-sign"></i>
+           Notifications
+         </a>
+       </li>
+       
+       <li>
+         <a href="google-map.html" title="Error Pages" >
+         <i class="icon-check"></i>
+           Additional
+         </a>
+       </li>
+    </ul>
+  </nav><!--NAV ENDS HERE-->
+  
+  
+  <aside>
+    
+    <div class="user">
+      <img src="images/user.jpg" alt="Esthetics Admin"/>
+      Akshay Kumar
+      <p>UI Designer / Developer</p>
+    </div>
+   
+    
+    <ul id="main-nav">
+       <li>
+         <a href="#" class="nav-top-item current" > Forms Stuff / Elements</a>
+         <ul>
+            <li><a href="forms-stuff.html">General Form Stuff</a></li>
+            <li><a href="forms-plugins-elements.html"> Forms Plugins / Elements</a></li>
+            <li><a href="buttons.html"> Buttons and Icons Styling </a></li>
+            <li><a href="forms-validation.html" class="active"> Forms With Validation </a></li>
+         </ul>
+       </li>
+       
+       <li>
+         <a href="#" class="nav-top-item current" > Other Forms Elements</a>
+         <ul>
+            <li><a href="forms-grid.html"> Forms Field Grid</a></li>
+            <li><a href="typography.html"> Typography Styling</a></li>
+            <li><a href="css3-family-tree.html">CSS3 Family Tree</a></li>
+            <li><a href="keyboard.html"> Full Keyboard</a></li>
+         </ul>
+       </li>
+      
+       <li>
+         <a href="#" class="nav-top-item current" > Some Fonts Icons (150+)</a>
+         <ul>
+            <li><a href="icons.html">Font Icons (150+)</a></li>
+            <li><a href="#">First Demo Menu</a></li>
+            <li><a href="#">Second Demo Menu</a></li>
+            <li><a href="#">Third Demo Menu</a></li>
+         </ul>
+       </li>
+    </ul>
+
+    <div class="submenu-footer">
+      <ul class="icons">
+          <li>
+          <a href="#"><i class="icon-off"></i></a>
+          </li>
+          <li>
+          <a href="#" id="messages"><i class="icon-inbox"></i></a>
+           <div class="submenu-footer-tooltip messages_list">
+            <ul class="mail">
+                <li><a href="#"> <strong>10:15</strong>Need your Help!<small>From: John</small></a></li>
+                <li><a href="#"> <strong>9:55</strong>New comment on you theme<small>From: themeforest</small></a></li>
+                <li><a href="#"> <strong>Yest.</strong>Successfull backup<small>From: System</small></a></li>
+                <li class="read"><a href="#"> <strong>2 days</strong>Bug report<small>From: Jane</small></a></li>
+                <li><a href="#"> <strong>08:42</strong>Hi how r u doing today...<small>From: Ajay Kumar</small></a></li>
+                <li class="read"><a href="#"> <strong>10:15</strong>Need your Help!<small>From: John</small></a></li>
+            </ul>
+           <img src="images/icons/arrow_down.png" class="arrow_w" alt="arrow"  /> 
+           </div> <!--SEARCH TOOLTIP ENDS-->
+          </li>
+          <li>
+          <a href="#" id="search"><i class="icon-search"></i></a>
+           <div class="submenu-footer-tooltip search_bar">
+            <input type="text" class="float_l _75" placeholder="Type Here To Search..." /><a href="" class="grey"><i class="icon-search"></i></a><img src="images/icons/arrow_down.png" class="arrow_w" alt="arrow"  />
+           </div> <!--SEARCH TOOLTIP ENDS-->
+          </li>
+      </ul>
+      <span>18 New Tasks</span>
+    </div><!--SUBMENU FOOTER ENDS HERE-->
+    
+  </aside><!--ASIDE ENDS HERE-->
+  
+  
+  <div class="main">
+  
+  <div class="non-shortable-content">
+     <h1>Forms With Validation</h1>
+     <h6>Use these forms for mandatory fields.</h6>  
+  </div>
+    
+  <div class="shortable-content">
+  
+  
+  <div class="box _100">
+    <div class="box-header">
+      General Forms Elements
+      <i class="icon-remove-sign close" title="Close"></i>
+      <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
+      </div>
+    <div class="box-content">
+      
+      <form id="formID" class="formular" method="post">
+      <div class="form-row">
+       <label for="normal-field"><strong>Normal Field</strong></label>
+       <div class="form-right-col"><input value="" class="validate[required] _100F" type="text" name="req" id="normal-field" /></div>
+      </div>
+      
+      <div class="form-row">
+       <label for="password"><strong>Password Field</strong></label>
+       <div class="form-right-col"><input class="validate[required] _100F" type="password" name="password" id="password" /></div>
+      </div>
+				
+      <div class="form-row">
+       <label for="password2"><strong>Repeat Password</strong></label>
+       <div class="form-right-col"><input class="validate[required,equals[password]] _100F" type="password" name="password2" id="password2" /></div>
+      </div>
+      
+      <div class="form-row">
+       <label for="email"><strong>Email Address</strong></label>
+       <div class="form-right-col"><input type="text" class="validate[required,custom[email]] _100F" id="email" /></div>
+      </div>
+      
+      <div class="form-row">
+       <label for="date"><strong>Enter Date</strong></label>
+       <div class="form-right-col"><input type="text" class="validate[required,custom[date]] _100F" id="date" /></div>
+      </div>
+      
+      <div class="form-row">
+       <label for="url"><strong>Enter a URL</strong></label>
+       <div class="form-right-col"><input value="http://" class="validate[required,custom[url]] _100F" type="text" name="url" id="url" /></div>
+      </div>
+      
+      <div class="form-row">
+       <label for="sport"><strong>Select option</strong></label>
+       <div class="form-right-col">
+         <select name="sport" id="sport" class="validate[required] _100F">
+            <option value="">Choose a sport</option>
+            <option value="option1">Tennis</option>
+            <option value="option2">Football</option>
+            <option value="option3">Golf</option>
+        </select>
+       </div>
+      </div>
+      
+      <div class="form-row">
+       <label for="lastname"><strong>Type 'HELLO'</strong></label>
+       <div class="form-right-col"><input value="" class="validate[required,funcCall[checkHELLO] _100F" type="text" id="lastname" name="lastname" /></div>
+      </div>
+      
+      <div class="form-row">
+       <label for="maxsize"><strong>Max 6 Characters</strong></label>
+       <div class="form-right-col"><input value="1234567" class="validate[optional,maxSize[6]] _100F" type="text" name="maxsize" id="maxsize" /></div>
+      </div>
+      
+      <div class="form-row">
+       <label for="textarea"><strong>Textarea</strong></label>
+       <div class="form-right-col"><textarea class="validate[required] _100F" id="textarea"></textarea></div>
+      </div>
+      
+      <div class="form-row">
+       <input type="reset" class="grey" value="Cancel" />
+       <input type="submit" value="Submit" class="float_r" />
+      </div>
+      </form>
+      
+    </div>
+  </div>  <!--GENRAL FORMS ENDS HERE-->
+  
+  
+  
+  
+  
+  
+  
+
+  </div><!--SHORTABLECONTENT-ENDS-->
+
+  </div><!--MAIN ENDS-->
+</body>
+</html>
