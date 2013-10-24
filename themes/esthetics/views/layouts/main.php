@@ -68,6 +68,9 @@
                         ),
                         array(
                             'label'=>'<i class="icon-user"></i>Manage Users', 
+                            'itemOptions'=>array(
+                                'title'=>'Manage Users'
+                            ), 
                             'url'=>array('/users'), 
                             'visible'=>!Yii::app()->user->isGuest
                         )

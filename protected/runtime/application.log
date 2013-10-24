@@ -10403,3 +10403,14 @@ Stack trace:
 REQUEST_URI=/elearning/index.php?r=users/update&id=15
 HTTP_REFERER=http://localhost/elearning/index.php?r=users/index
 ---
+2013/10/24 01:24:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "users".' in /Users/brychantoda/Sites/elearning/framework/web/CController.php:483
+Stack trace:
+#0 /Users/brychantoda/Sites/elearning/framework/web/CController.php(270): CController->missingAction('users')
+#1 /Users/brychantoda/Sites/elearning/framework/web/CWebApplication.php(282): CController->run('users')
+#2 /Users/brychantoda/Sites/elearning/framework/web/CWebApplication.php(141): CWebApplication->runController('site/users')
+#3 /Users/brychantoda/Sites/elearning/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/brychantoda/Sites/elearning/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/elearning/index.php?r=site/users
+HTTP_REFERER=http://localhost/elearning/index.php?r=site/login
+---
