@@ -8,8 +8,15 @@
                 <ul id="main-nav"> 
                     <li> <a href="#" class="nav-top-item current"> Admin Functions </a> 
                         <ul style="display: block; "> 
-                            <li><?php echo CHtml::link('</i>List Users', array('index'),array('class'=>(Yii::app()->getController()->getAction()->controller->action->id=='index')?'active':'' ));?></li> 
-                            <li><?php echo CHtml::link('</i>Create User', array('create'),array('class'=>(Yii::app()->getController()->getAction()->controller->action->id=='create')?'active':'' ));?></li> 
+                            <li><?php echo CHtml::link('</i>List Users', array('users/index'),array('class'=>((Yii::app()->getController()->getID()=='users') and (Yii::app()->getController()->getAction()->controller->action->id=='index'))?'active':'' ));?></li> 
+                            <li><?php echo CHtml::link('</i>Create User', array('users/create'),array('class'=>((Yii::app()->getController()->getID()=='users') and (Yii::app()->getController()->getAction()->controller->action->id=='create'))?'active':'' ));?></li> 
+           
+                        </ul> 
+                    </li> 
+                    <li> <a href="#" class="nav-top-item current"> Modules Functions </a> 
+                        <ul style="display: block; "> 
+                            <li><?php echo CHtml::link('</i>List Modules', array('modules/index'),array('class'=>((Yii::app()->getController()->getID()=='modules') and (Yii::app()->getController()->getAction()->controller->action->id=='index'))?'active':'' ));?></li> 
+                            <li><?php echo CHtml::link('</i>Create Module', array('modules/create'),array('class'=>((Yii::app()->getController()->getID()=='modules') and (Yii::app()->getController()->getAction()->controller->action->id=='create'))?'active':'' ));?></li> 
                         </ul> 
                     </li> 
                    
