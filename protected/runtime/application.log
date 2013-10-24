@@ -25,3 +25,104 @@ Stack trace:
 #12 {main}
 REQUEST_URI=/elearning/index.php?r=modules/delete&id=123123
 ---
+2013/10/24 15:58:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in /Users/brychantoda/Sites/elearning/framework/web/CController.php:483
+Stack trace:
+#0 /Users/brychantoda/Sites/elearning/framework/web/CController.php(270): CController->missingAction('')
+#1 /Users/brychantoda/Sites/elearning/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/brychantoda/Sites/elearning/framework/web/CWebApplication.php(141): CWebApplication->runController('imageuploader')
+#3 /Users/brychantoda/Sites/elearning/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/brychantoda/Sites/elearning/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/elearning/index.php?r=imageuploader
+---
+2013/10/24 15:58:12 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'elearning.tbl_post_images' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_post_images`.
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (11)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 15:58:12 [error] [exception.CDbException] exception 'CDbException' with message 'The table "tbl_post_images" for active record class "ImageUploader" cannot be found in the database.' in /Users/brychantoda/Sites/elearning/framework/db/ar/CActiveRecord.php:2362
+Stack trace:
+#0 /Users/brychantoda/Sites/elearning/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(ImageUploader))
+#1 /Users/brychantoda/Sites/elearning/framework/db/ar/CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php(11): CActiveRecord->__construct()
+#3 /Users/brychantoda/Sites/elearning/framework/web/actions/CInlineAction.php(49): ImageUploaderController->actionCreate()
+#4 /Users/brychantoda/Sites/elearning/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/brychantoda/Sites/elearning/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /Users/brychantoda/Sites/elearning/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/brychantoda/Sites/elearning/framework/web/CWebApplication.php(282): CController->run('create')
+#8 /Users/brychantoda/Sites/elearning/framework/web/CWebApplication.php(141): CWebApplication->runController('imageuploader/c...')
+#9 /Users/brychantoda/Sites/elearning/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/brychantoda/Sites/elearning/index.php(14): CApplication->run()
+#11 {main}
+REQUEST_URI=/elearning/index.php?r=imageuploader/create
+---
+2013/10/24 16:04:24 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:05:34 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:05:47 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:05:57 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:06:08 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:06:19 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:07:02 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:07:11 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:08:13 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:08:18 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:08:49 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:09:09 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:11:15 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:11:27 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:11:36 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:11:55 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageuploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:12:13 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageUploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:12:53 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageUploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:13:16 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageUploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:15:15 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageUploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:15:56 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageUploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:16:01 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageUploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:17:22 [warning] [application] Failed to set unsafe attribute "image" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageUploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)
+2013/10/24 16:17:27 [warning] [application] Failed to set unsafe attribute "image_uri" of "ImageUploader".
+in /Users/brychantoda/Sites/elearning/protected/controllers/ImageUploaderController.php (14)
+in /Users/brychantoda/Sites/elearning/index.php (14)

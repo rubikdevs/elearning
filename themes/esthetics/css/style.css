@@ -17,11 +17,7 @@
 	@import url('wysiwyg.css'); /* wysiwyg css */
 	
 	@import url('plugins.css'); /* icons font css */
-	
-	@import url('jquery.plupload.queue.css'); /* plupload 1.5.4 css */
-	
-	@import url('elfinder.css'); /* file manager css */
-	
+		
 	@import url('jquery-ui-1.8.13.custom.css'); /* jquery ui custom css */
 	
 	@import url('slider.css'); /* Contact slider css */
@@ -66,8 +62,10 @@ nav ul li a{
 	text-decoration:none;
 	text-align:center;
 }
-
-
+body {
+    min-width: 1240px;
+    max-width: 1240px;
+}
 nav ul li a.current{
 	background:#0b0b0b url(../images/nav-current.png) right center no-repeat;
 }
@@ -673,7 +671,26 @@ p, h4{
 	right:-6px;
 }
 
+ .file-input-drop-zone {
+        height: 150px;
+        width: 98%;
+        margin: 0 auto;
+                margin-top: 20px;
 
+        border: 3px dashed grey;
+        overflow: hidden;
+        text-align: center;
+        line-height: 130px;
+        
+    }
+
+
+    .file-input-drop-zone img {
+        height: 100%;
+        width: auto;
+        margin: 0 auto;
+        display: block;
+    }
 
 /*===========Forms Elements============*/
 /*===========Forms Elements============*/
@@ -879,6 +896,36 @@ a.button i, a.grey i{
     padding: 10px 12px;
 }
 
+div.fileinputs {
+    position: relative;
+}
+
+div.fakefile {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+div.fakefile input {
+    height: 20px;
+}
+
+.file.hidden {
+    height: 27px !important;
+    width: 225px !important;
+}
+
+.fileinputs input.file {
+    position: relative;
+    height: 23px;
+    width: 230px;
+    text-align: right;
+    -webkit-opacity:0 ;
+    filter:alpha(opacity: 0);
+    opacity: 0;
+    z-index: 2;
+}
 
 /*Blue Button*/
 button, input[type="button"], input[type="submit"], a.button, .ui-button.ui-state-default:not(.ui-spinner-button) {

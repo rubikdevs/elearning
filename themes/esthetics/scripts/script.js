@@ -28,28 +28,12 @@
   
   document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/jquery.purr.js"></script>'); /*==== PURR Sticky NOTES ====*/
   
+  document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/ckeditor/ckeditor.js"></script>');
+
   document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/jquery.simplemodal.js"></script>'); /*==== MODAL BOX ====*/
-  
-  document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/plupload_custom.js"></script>'); /*==== PLUPLOAD CUSTOM ====*/
-  
-  document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/plupload/plupload.js"></script>'); /*==== PLUPLOAD CUSTOM ====*/
-  
-  document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/plupload/plupload.gears.js"></script>'); /*==== PLUPLOAD CUSTOM ====*/
-  
-  document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/plupload/plupload.silverlight.js"></script>'); /*==== PLUPLOAD CUSTOM ====*/
-  
-  document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/plupload/plupload.flash.js"></script>'); /*==== PLUPLOAD CUSTOM ====*/
-  
-  document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/plupload/plupload.browserplus.js"></script>'); /*==== PLUPLOAD CUSTOM ====*/
-  
-  document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/plupload/plupload.html4.js"></script>'); /*==== PLUPLOAD CUSTOM ====*/
-  
-  document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/plupload/plupload.html5.js"></script>'); /*==== PLUPLOAD CUSTOM ====*/
-  
-  document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/plupload/jquery.plupload.queue/jquery.plupload.queue.js"></script>'); /*==== PLUPLOAD CUSTOM ====*/
-  
-  document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/file_manager/elfinder.full.js"></script>'); /*==== FILE MANAGER ====*/
-  
+
+  document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/file-input-drop-zone.js"></script>'); /*==== MODAL BOX ====*/
+   
   document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/forms-style.js"></script>'); /*==== CHECKBOX AND RADIO ====*/
   
   document.writeln('<script type="text/javascript" src="/elearning/themes/esthetics/scripts/slidernav.js"></script>'); /*==== CONTACT LIST ====*/

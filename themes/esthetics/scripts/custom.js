@@ -502,48 +502,6 @@ $('#transformers').sliderNav({items:['autobots','decepticons'], debug: true, hei
 
 
 
-
-
-/*************plupload_1_5_4****************/
-/*************plupload_1_5_4****************/	
-
-
-
-			
-			var f = $('#finder').elfinder({
-				url : 'connectors/php/connector.php',
-				lang : 'en',
-				docked : true
-
-				// dialog : {
-				// 	title : 'File manager',
-				// 	height : 500
-				// }
-
-				// Callback example
-				//editorCallback : function(url) {
-				//	if (window.console && window.console.log) {
-				//		window.console.log(url);
-				//	} else {
-				//		alert(url);
-				//	}
-				//},
-				//closeOnEditorCallback : true
-			})
-			// window.console.log(f)
-			$('#close,#open,#dock,#undock').click(function() {
-				$('#finder').elfinder($(this).attr('id'));
-			});
-			
-		
-	
-	
-	
-	
-	
-
-
-
 /*************Step by Step Wizard****************/
 /*************Step by Step Wizard****************/
 
