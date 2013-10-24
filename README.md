@@ -10,5 +10,5 @@ Ya debería estar todo los issues arreglados (por fin):
 
 ######Issues:
 	- Highlight 'Manage Users', li.active && a.current
-
+	- Check if User exists before creating/updating
 
