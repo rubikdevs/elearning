@@ -1,14 +1,12 @@
-#####Last updates: 24/10/2013 01:40
+#####Last updates: 24/10/2013 12:10
 #####Contributor: brychan
+######Branch: Modules-crud
 ######Brief Description: 
 
-Ya debería estar todo los issues arreglados (por fin):
-
-	- Log-in working w/SHA1 passwords.
-	- E-mail Column dumped.
-	- Listing fixed.
+Agregado CRUD Modules
+	- Column 2 Layout 'actives' fixed
 
 ######Issues:
 	- Highlight 'Manage Users', li.active && a.current
 	- Check if User exists before creating/updating
-
+	- If module_code (Primary) already exists => BOOM!
