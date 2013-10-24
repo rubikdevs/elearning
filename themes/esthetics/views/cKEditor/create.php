@@ -1,18 +1,26 @@
 <?php
-/* @var $this CkeditorController */
-/* @var $model Ckeditor */
-
-$this->breadcrumbs=array(
-	'Ckeditors'=>array('index'),
-	'Create',
+$form = $this->beginWidget(
+    'CActiveForm',
+    array(
+        'id' => 'post-form',
+        'enableAjaxValidation' => false,
+        'htmlOptions' => array('enctype' => 'multipart/form-data'),
+    )
 );
 
-$this->menu=array(
-	array('label'=>'List Ckeditor', 'url'=>array('index')),
-	array('label'=>'Manage Ckeditor', 'url'=>array('admin')),
-);
+// ...
 ?>
-
-<h1>Create Ckeditor</h1>
-
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<div class="box _66">
+    <div class="box-header" style="text-align:center">  Post Uploader </div>
+    <div class="box-content">
+        <div class="form-row">
+            <?php echo $form->textArea($model, 'description', array('class'=>'ckeditor')); ?>
+        </div>
+    </div>
+    <div class="form-row">
+    <?php
+        echo '<p style="text-align:center">'.CHtml::submitButton('upload').'</p>'; // ...
+        $this->endWidget();
+    ?>
+ 	</div>
+</div>

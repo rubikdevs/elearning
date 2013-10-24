@@ -30,17 +30,6 @@ $form = $this->beginWidget(
     </div>
 </div>
 
-<div class="box _75">
-    <div class="box-header">
-       Text Editor
-      <i class="icon-remove-sign close" title="Close"></i>
-      <i class="icon-minus-sign minimize" title="Minimize/Maximize"></i>
-      </div>
-      <div class="box-content">
-      
-      <textarea class="ckeditor" name="editor1"></textarea>
-    </div>
-</div>
 
 
 
