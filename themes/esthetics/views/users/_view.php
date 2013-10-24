@@ -9,7 +9,6 @@
 
     <td><?php echo CHtml::encode($data->username); ?> </td>
     <td><?php echo CHtml::encode($data->password); ?> </td>
-	<td><?php echo CHtml::encode($data->email); ?></td>
 
 
 </tr>
