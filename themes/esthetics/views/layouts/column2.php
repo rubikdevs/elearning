@@ -8,9 +8,8 @@
                 <ul id="main-nav"> 
                     <li> <a href="#" class="nav-top-item current"> Admin Functions </a> 
                         <ul style="display: block; "> 
-                            <li><?php echo Chtml::link('</i>Manage Users', array('admin'),array('class'=>(Yii::app()->getController()->getAction()->controller->action->id=='admin')?'active':'' ));?></li> 
-                            <li><?php echo Chtml::link('</i>List Users', array('index'),array('class'=>(Yii::app()->getController()->getAction()->controller->action->id=='index')?'active':'' ));?></li> 
-                            <li><?php echo Chtml::link('</i>Create User', array('create'),array('class'=>(Yii::app()->getController()->getAction()->controller->action->id=='create')?'active':'' ));?></li> 
+                            <li><?php echo CHtml::link('</i>List Users', array('index'),array('class'=>(Yii::app()->getController()->getAction()->controller->action->id=='index')?'active':'' ));?></li> 
+                            <li><?php echo CHtml::link('</i>Create User', array('create'),array('class'=>(Yii::app()->getController()->getAction()->controller->action->id=='create')?'active':'' ));?></li> 
                         </ul> 
                     </li> 
                    

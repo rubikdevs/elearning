@@ -13,7 +13,7 @@
             User <?php echo $model->id; ?>
         </div>
         <div class="box-content padd-10">
-            <?php $this->renderPartial('_form', array('model'=>$model)); ?>
+            <?php $this->renderPartial('_updateform', array('model'=>$model)); ?>
         </div>
     </div>
 <div>
