@@ -23,5 +23,8 @@ $this->menu=array(
 	'attributes'=>array(
 		'page_code',
 		'page_number',
+		'module_code',
+		'question',
+		'answer',
 	),
 )); ?>

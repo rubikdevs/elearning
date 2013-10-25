@@ -25,6 +25,24 @@
 		<?php echo $form->error($model,'page_number'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'module_code'); ?>
+		<?php echo $form->textField($model,'module_code'); ?>
+		<?php echo $form->error($model,'module_code'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'question'); ?>
+		<?php echo $form->textArea($model,'question',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'question'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'answer'); ?>
+		<?php echo $form->textArea($model,'answer',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'answer'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

@@ -47,6 +47,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'page_code',
 		'page_number',
+		'module_code',
+		'question',
+		'answer',
 		array(
 			'class'=>'CButtonColumn',
 		),
