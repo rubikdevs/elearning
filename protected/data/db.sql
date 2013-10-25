@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+--** phpMyAdmin SQL Dump
 -- version 4.0.6
 -- http://www.phpmyadmin.net
 --
@@ -9,6 +9,50 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+n SQL Dump
+-- version 4.0.6
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Oct 25, 2013 at 07:08 PM
+-- Server version: 5.5.33
+-- PHP Version: 5.5.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `elearning`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_user`
+--
+
+CREATE TABLE `tbl_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(128) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `user_level` int(5) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+
+--
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`id`, `username`, `password`, `user_level`) VALUES
+(22, 'Bichi', 'Bichi', 0),
+(23, 'nico', 'd659c10e27d52b00987b65e85d99bce5480adcae', 0),
+(24, 'pepe', 'pepe', 0),
+(25, 'nico1', 'nico2', 0),
+(26, 'pepe', '265392dc2782778664cc9d56c8e3cd9956661bb0', 0),
+(27, 'hash', '2346ad27d7568ba9896f1b7da6b5991251debdf2', 0),
+(28, 'banana', '9ae01fbc9c3e989bc35e7c0308bd4a30d5a65e88', 0),
+(29, 'test20', 'de7cabd865ea81f0af7b84d9da5ec5a2c0a0bf0b', 0),
+(30, 'Pepe', '265392dc2782778664cc9d56c8e3cd9956661bb0', 1);
 
 --
 -- Database: `elearning`
