@@ -27,7 +27,8 @@
         'attributes'=>array(
             'id'=>'id',
             'username'=>'username',
-            'password'=>'password'
+            'password'=>'password',
+            'user_level'=>'user_level',
         ),
     )); ?>
         

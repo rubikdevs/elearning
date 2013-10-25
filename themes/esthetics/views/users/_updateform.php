@@ -25,6 +25,11 @@
 		<?php echo $form->error($model,'password'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'user_level'); ?>
+		<?php echo $form->textField($model,'user_level',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->error($model,'user_level'); ?>
+	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
