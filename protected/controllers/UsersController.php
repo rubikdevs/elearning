@@ -11,6 +11,8 @@ class UsersController extends Controller
 	/**
 	 * @return array action filters
 	 */
+
+
 	public function filters()
 	{
 		return array(
@@ -61,6 +63,9 @@ class UsersController extends Controller
 	 */
 	public function actionCreate()
 	{
+		//$this->allowUser(REGULAR_USER);
+		var_dump($this->userData);
+		die;
 		$model=new Users;
 
 		// Uncomment the following line if AJAX validation is needed
