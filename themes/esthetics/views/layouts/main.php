@@ -33,25 +33,11 @@
 			        'items'=>array(
     				    array(
                         
-                            'label'=>'<i class="icon-home"></i>Index', 
+                            'label'=>'<i class="icon-home"></i>Home', 
                             'url'=>array('/site/index'),
                             'itemOptions'=>array(
-                                'title'=>'Index'
+                                'title'=>'Home'
                             )
-                        ),
-    				    array(
-                            'url'=>array('/site/page', 'view'=>'about'),
-                            'label'=>'<i class="icon-info-sign"></i>About', 
-                            'itemOptions'=>array(
-                                'title'=>'About'
-                            ),
-                        ),
-    				    array(
-                            'label'=>'<i class="icon-envelope ui-icon-contact"></i>Contact',
-                            'url'=>array('/site/contact'),
-                            'itemOptions'=>array(
-                                'title'=>'Contact'
-                            ), 
                         ),
     				    array(
                             'label'=>'<i class="icon-signin"></i>Login', 

@@ -35,7 +35,7 @@ class UsersController extends Controller
 				(
 					'index',
 					'view',
-					'create',
+					//'create',
 				),
 				'users'=>array('*'),
 			),
@@ -46,11 +46,11 @@ class UsersController extends Controller
 	            'actions'=>array
 	            (
 	                'admin',
-	                //'create',
+	                'create',
 	                'delete',
 	                'update',
 	            ),
-	            'expression'=>'$user->isAdmin()'
+	            'expression'=>'$user->isSuperuser() || $user->isAdmin()'      
 	        ),
         // DIE USERS
          	array('deny', 'users'=>array('*'))
