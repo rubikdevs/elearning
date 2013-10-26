@@ -1,6 +1,6 @@
 #####Date: 24/10/2013 16:23
 #####Contributor: brychan & marian
-######Branch: Modules-crud
+##### SCSDCS
 ######Brief Description: 
 	- Agregado CRUD Modules
 	- Upload Image functionality added
