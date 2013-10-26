@@ -28,7 +28,7 @@ class PagesController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','uploadImage'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -60,10 +60,11 @@ class PagesController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($module_code,$image_uri=null)
 	{
 		$model=new Pages;
-
+		$model->module_code = $module_code;
+		$model->image_uri = $image_uri;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -77,6 +78,22 @@ class PagesController extends Controller
 		$this->render('create',array(
 			'model'=>$model,
 		));
+	}
+
+	public function actionUploadImage($module_code) {
+		$model=new ImageUploader;
+        if(isset($_POST['ImageUploader']))
+        {
+            $model->attributes=$_POST['ImageUploader'];
+            $model->image_uri=CUploadedFile::getInstance($model,'image_uri');
+            if($model->save())
+            {   
+                $model->image_uri->saveAs('images/'.$model->image_uri);
+                $this->redirect(array('create','module_code'=>$module_code, 'image_uri'=> 'images/'.$model->image_uri));
+                // redirect to success page
+            }
+        }
+        $this->render('/ImageUploader/create', array('model'=>$model));
 	}
 
 	/**
