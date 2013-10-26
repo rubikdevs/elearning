@@ -2,10 +2,6 @@
 /* @var $this ModulesController */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->breadcrumbs=array(
-	'Modules',
-);
-
 $this->menu=array(
 	array('label'=>'Create Modules', 'url'=>array('create')),
 	array('label'=>'Manage Modules', 'url'=>array('admin')),

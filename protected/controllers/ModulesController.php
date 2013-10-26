@@ -70,15 +70,13 @@ class ModulesController extends Controller
 		if(isset($_POST['Modules']))
 		{
 			$model->attributes=$_POST['Modules'];
-
-			if (!$model->checkExistance($_POST['Modules']['module_code'])){
-				if($model->save())
+			if($model->save())
 					$this->redirect(array('view','id'=>$model->module_code));
-			} else 
-			{
-				var_dump('YA EXISTE');
+			else {
+				var_dump($model->getErrors());
 				die;
 			}
+				
 		}
 		$this->render('create',array(
 			'model'=>$model,
