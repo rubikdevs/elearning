@@ -44,6 +44,7 @@ class Pages extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'owner'=>array(self::BELONGS_TO, 'Modules', 'module_code'),
 		);
 	}
 
