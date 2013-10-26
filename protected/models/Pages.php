@@ -28,7 +28,7 @@ class Pages extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('page_number, module_code, question, answer', 'required'),
+			array('page_number, module_code, question, answer, description', 'required'),
 			array('page_number, module_code', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -59,6 +59,7 @@ class Pages extends CActiveRecord
 			'module_code' => 'Module Code',
 			'question' => 'Question',
 			'answer' => 'Answer',
+			'description'=> 'Description'
 		);
 	}
 

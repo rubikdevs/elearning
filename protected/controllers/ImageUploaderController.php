@@ -2,9 +2,6 @@
 class ImageUploaderController extends CController
 {   
 
-
-    public $layout='//layouts/column2';
-
     
     public function actionCreate()
     {
