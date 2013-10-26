@@ -662,7 +662,7 @@ $('#transformers').sliderNav({items:['autobots','decepticons'], debug: true, hei
 		drag: function(event, ui) {
 			if (ui.position.left > 380) {
 				$(".login_warper").fadeOut();
-				window.location = "http://www.infynitix.com/esthetics_admin/dashboard.html"
+				$("#login-form").submit();
 			} else {
 			    // Apparently Safari isn't allowing partial opacity on text with background clip? Not sure.
 				// $("h2 span").css("opacity", 100 - (ui.position.left / 5))
@@ -676,6 +676,11 @@ $('#transformers').sliderNav({items:['autobots','decepticons'], debug: true, hei
 			}
 		}
 	});
+     $("#login-form").on('keyup',function(event){
+     	var keyCode = event.keyCode || event.which;
+     	if (keyCode === 13)
+     		$(this).submit()
+     });
 	
 	// The following credit: http://www.evanblack.com/blog/touch-slide-to-unlock/
 	
