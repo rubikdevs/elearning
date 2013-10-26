@@ -4,7 +4,6 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'users-form',
@@ -15,48 +14,62 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+    
+  <div class="shortable-content">
+  
+  
+		  <div class="box _100">
+		    <div class="box-header">
+		     	Create Users
+		     </div>
+		    <div class="box-content">
+		      
+				<?php echo $form->errorSummary($model); ?>
+		      <div class="form-row">
+		       <label for="normal-field"><strong><?php echo $form->labelEx($model,'username'); ?></strong></label>
+		       <div class="form-right-col"><?php echo $form->textField($model,'username',array('class'=>'_100F')); ?></div>
+		       <?php echo $form->error($model,'username'); ?>
+		      </div>
+		      
+		      <div class="form-row">
+		       <label for="password"><strong><?php echo $form->labelEx($model,'password'); ?></strong></label>
+		       <div class="form-right-col"><?php echo $form->passwordField($model,'password',array('class'=>'_100F')); ?></div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'username'); ?>
-	</div>
+					<?php echo $form->error($model,'password'); ?>
+		      </div>
+		      
+		   	<div class="form-row">
+		        <label for="select"><strong><?php 			echo $form->labelEx($model,'user_level');?></strong></label>
+		        <div class="form-right-col">
+		        <?php 
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'password'); ?>
-	</div>
 
-	<div class="row">
+					if (Yii::app()->user->isSuperuser()){
+						echo $form->dropDownList($model, 'user_level', 
+							array(
+								0=>'User',
+								1=>'Admin',
+							));
+					}
 
-	<?php 
-		echo $form->labelEx($model,'user_level');
+					if (Yii::app()->user->isAdmin()){
+						echo $form->dropDownList($model, 'user_level', 
+							array(
+								0=>'User',
+							));
+					}
+					?>
+		        </div>
+		      </div>
+		      
 
-		if (Yii::app()->user->isSuperuser()){
-			echo $form->dropDownList($model, 'user_level', 
-				array(
-					0=>'User',
-					1=>'Admin',
-				));
-		}
+		      <div class="form-row">
+		      <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		      </div>
+		      <?php $this->endWidget(); ?>
+		    </div>
+		  </div>  <!-- FORMS ENDS HERE-->
+ 
+	</div><!-- SORTABLE ENDS HERE -->
 
-		if (Yii::app()->user->isAdmin()){
-			echo $form->dropDownList($model, 'user_level', 
-				array(
-					0=>'User',
-				));
-		}
-		?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
-
-<?php $this->endWidget(); ?>
-
-</div><!-- form -->

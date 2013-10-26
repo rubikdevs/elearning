@@ -29,7 +29,7 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$this->render('login_index');
 	}
 
 	/**
@@ -96,7 +96,7 @@ class SiteController extends Controller
 				$this->redirect(array('/users/'));
 		}
 		// display the login form
-		$this->render('login',array('model'=>$model));
+		$this->render('login_index',array('model'=>$model));
 	}
 
 	/**
@@ -105,6 +105,6 @@ class SiteController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
+		$this->redirect(array('login'));
 	}
 }

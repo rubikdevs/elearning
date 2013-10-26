@@ -31,14 +31,7 @@
 		        <?php $this->widget('zii.widgets.CMenu',array(
                     'encodeLabel'=>false,
 			        'items'=>array(
-    				    array(
-                        
-                            'label'=>'<i class="icon-home"></i>Home', 
-                            'url'=>array('/site/index'),
-                            'itemOptions'=>array(
-                                'title'=>'Home'
-                            )
-                        ),
+
     				    array(
                             'label'=>'<i class="icon-signin"></i>Login', 
                             'itemOptions'=>array(
