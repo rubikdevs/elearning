@@ -15,33 +15,17 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-	<?php echo $form->errorSummary($model); ?>
-
+	
 	<div class="row">
-		<?php echo $form->labelEx($model,'module_code'); ?>
-		<?php echo $form->textField($model,'module_code'); ?>
-		<?php echo $form->error($model,'module_code'); ?>
+		<h3>Autor: <?php echo Yii::app()->user->name ?></h3>
 	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'module_name'); ?>
 		<?php echo $form->textField($model,'module_name',array('size'=>60,'maxlength'=>300)); ?>
+		<?php echo $form->hiddenField($model,'creator',array('value'=>Yii::app()->user->name)); ?>
 		<?php echo $form->error($model,'module_name'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'creator'); ?>
-		<?php echo $form->textField($model,'creator',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'creator'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_date'); ?>
-		<?php echo $form->textField($model,'create_date'); ?>
-		<?php echo $form->error($model,'create_date'); ?>
-	</div>
+	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

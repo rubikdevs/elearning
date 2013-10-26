@@ -27,10 +27,9 @@ class Modules extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('module_code, module_name, creator, create_date', 'required'),
-			array('module_code', 'numerical', 'integerOnly'=>true),
-			array('module_name', 'length', 'max'=>300),
-			array('creator', 'length', 'max'=>100),
+			array('module_name, creator', 'required'),
+			array('module_name', 'length', 'max'=>60),
+			array('creator', 'length', 'max'=>60),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('module_code, module_name, creator, create_date', 'safe', 'on'=>'search'),
@@ -47,6 +46,7 @@ class Modules extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'pagesT'=>array(self::HAS_MANY, 'Pages', 'module_code'),
 		);
 	}
 
