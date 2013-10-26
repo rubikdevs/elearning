@@ -26,9 +26,24 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'user_level'); ?>
-		<?php echo $form->textField($model,'user_level',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'user_level'); ?>
+	<?php 
+		echo $form->labelEx($model,'user_level');
+
+		if (Yii::app()->user->isSuperuser()){
+			echo $form->dropDownList($model, 'user_level', 
+				array(
+					0=>'User',
+					1=>'Admin',
+				));
+		}
+
+		if (Yii::app()->user->isAdmin()){
+			echo $form->dropDownList($model, 'user_level', 
+				array(
+					0=>'User',
+				));
+		}
+		?>
 	</div>
 
 	<div class="row buttons">

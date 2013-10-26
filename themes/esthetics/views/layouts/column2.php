@@ -6,6 +6,13 @@
                     <p>USER PANEL </p> 
                 </div> 
                 <ul id="main-nav"> 
+
+
+                
+                <?php 
+                // ADMIN LIST
+                if (Yii::app()->user->isSuperuser() or Yii::app()->user->isAdmin()){
+                ?>
                     <li> <a href="#" class="nav-top-item current"> Admin Functions </a> 
                         <ul style="display: block; "> 
                             <li><?php echo CHtml::link('</i>List Users', array('users/index'),array('class'=>((Yii::app()->getController()->getID()=='users') and (Yii::app()->getController()->getAction()->controller->action->id=='index'))?'active':'' ));?></li> 
@@ -19,7 +26,7 @@
                             <li><?php echo CHtml::link('</i>Create Module', array('modules/create'),array('class'=>((Yii::app()->getController()->getID()=='modules') and (Yii::app()->getController()->getAction()->controller->action->id=='create'))?'active':'' ));?></li> 
                         </ul> 
                     </li> 
-                   
+                   <?php } ?>
                  </ul> 
             </aside>
     <?php echo $content?>

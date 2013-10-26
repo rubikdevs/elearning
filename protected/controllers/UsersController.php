@@ -28,21 +28,32 @@ class UsersController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+		// GUEST CAN ACCESS HERE:
+			array(
+				'allow', 
+				'actions'=>array
+				(
+					'index',
+					'view',
+					//'create',
+				),
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','view'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','view'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
+		// ADMIN'S CAN ACCESS HERE:
+			array
+	        (
+	            'allow',
+	            'actions'=>array
+	            (
+	                'admin',
+	                'create',
+	                'delete',
+	                'update',
+	            ),
+	            'expression'=>'$user->isSuperuser() || $user->isAdmin()'      
+	        ),
+        // DIE USERS
+         	array('deny', 'users'=>array('*'))
 		);
 	}
 
@@ -64,8 +75,7 @@ class UsersController extends Controller
 	public function actionCreate()
 	{
 		//$this->allowUser(REGULAR_USER);
-		var_dump($this->userData);
-		die;
+
 		$model=new Users;
 
 		// Uncomment the following line if AJAX validation is needed
