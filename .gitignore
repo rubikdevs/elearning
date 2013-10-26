@@ -1,4 +1,6 @@
 .DS_Store
 **/.DS_Store
-protected/config/
-/protected/config/
+protected/config/*
+/protected/config/*
+protected/runtime/*
+
