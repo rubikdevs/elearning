@@ -1,9 +1,9 @@
-n SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.0.6
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 25, 2013 at 07:13 PM
+-- Generation Time: Oct 28, 2013 at 02:14 PM
 -- Server version: 5.5.33
 -- PHP Version: 5.5.3
 
@@ -17,49 +17,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ckeditor`
---
-
-CREATE TABLE `tbl_ckeditor` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `description` longtext NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `tbl_ckeditor`
---
-
-INSERT INTO `tbl_ckeditor` (`id`, `description`) VALUES
-(1, 'hola'),
-(2, '<p>ddfsdfdfsdf<strong>sdfsdfsdfsdfsdfsdfsdfsdsfd</strong></p>\r\n'),
-(3, '<p>dfsdf<em><s>sdfsdf</s></em></p>\r\n'),
-(4, '<p>fdfgdfgdfg</p>\r\n');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_modules`
 --
 
 CREATE TABLE `tbl_modules` (
-  `module_code` int(20) NOT NULL,
-  `module_name` varchar(300) NOT NULL,
-  `creator` varchar(100) NOT NULL,
-  `create_date` date NOT NULL,
-  PRIMARY KEY (`module_code`),
-  UNIQUE KEY `module_code` (`module_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `module_code` int(11) NOT NULL AUTO_INCREMENT,
+  `creator` varchar(60) NOT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `module_name` varchar(60) NOT NULL,
+  PRIMARY KEY (`module_code`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `tbl_modules`
 --
 
-INSERT INTO `tbl_modules` (`module_code`, `module_name`, `creator`, `create_date`) VALUES
-(123123, 'dfsfsd', 'asdasd', '0000-00-00'),
-(123333, '2312', '1231', '0000-00-00'),
-(223233, 'PAPAYA', 'ME', '0000-00-00');
+INSERT INTO `tbl_modules` (`module_code`, `creator`, `create_date`, `module_name`) VALUES
+(1, 'admin', '2013-10-26 03:48:32', 'Marian'),
+(2, 'admin', '2013-10-28 05:51:30', 'module 2'),
+(3, 'admin', '2013-10-28 05:51:37', 'module 3');
 
 -- --------------------------------------------------------
 
@@ -73,16 +49,21 @@ CREATE TABLE `tbl_pages` (
   `module_code` int(20) NOT NULL,
   `question` text NOT NULL,
   `answer` text NOT NULL,
+  `description` longtext NOT NULL,
+  `image_uri` varchar(256) NOT NULL,
   PRIMARY KEY (`page_code`),
   UNIQUE KEY `page_code` (`page_code`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `tbl_pages`
 --
 
-INSERT INTO `tbl_pages` (`page_code`, `page_number`, `module_code`, `question`, `answer`) VALUES
-(1, 1, 0, '', '');
+INSERT INTO `tbl_pages` (`page_code`, `page_number`, `module_code`, `question`, `answer`, `description`, `image_uri`) VALUES
+(1, 1, 1, 'Puto', 'Puto', '', 'images/images.png'),
+(2, 2323, 1, 'asdfadsf', 'asdfasdfasf', '<blockquote>\r\n<ol>\r\n	<li>asdfaasdfadsfasdfa<img alt="" src="images/images.png" style="height:320px; width:298px" />asadfadfssdfadasadsfasdfafsdf</li>\r\n</ol>\r\n\r\n<p>adfasdfasdfaf</p>\r\n</blockquote>\r\n', 'images/images.png'),
+(3, 2323, 1, 'asdfadsf', 'asdfasdfasf', '<blockquote>\r\n<ol>\r\n	<li>asdfaasdfadsfasdfa<img alt="" src="images/images.png" style="height:320px; width:298px" />asadfadfssdfadasadsfasdfafsdf</li>\r\n</ol>\r\n\r\n<p>adfasdfasdfaf</p>\r\n</blockquote>\r\n\r\n<p> </p>\r\n\r\n<ol>\r\n	<li>dsfasdfasd</li>\r\n	<li>fasdfasdfasdf</li>\r\n	<li>asdfasdfasdf</li>\r\n	<li>asdfadsfadsf</li>\r\n	<li>asdfasdfasdf</li>\r\n	<li>\r\n	<h2 style="font-style:italic;"><span class="marker">asdfasdfasfasdfafsd</span></h2>\r\n	</li>\r\n</ol>\r\n\r\n<p><span class="marker">asdfadsfasdfasfdsafdafda</span></p>\r\n', 'images/images.png'),
+(4, 1, 1, 'zxczxcz', 'zxczxc', '<p>axczxczxczxczxczxc</p>\r\n\r\n<p>zxcz</p>\r\n\r\n<p>xczxc</p>\r\n\r\n<p>zxc</p>\r\n\r\n<p>zxczx</p>\r\n', '');
 
 -- --------------------------------------------------------
 
@@ -95,14 +76,24 @@ CREATE TABLE `tbl_post_images` (
   `image_uri` varchar(200) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `tbl_post_images`
 --
 
 INSERT INTO `tbl_post_images` (`id`, `image_uri`) VALUES
-(17, 'dsfa.jpg');
+(17, 'dsfa.jpg'),
+(18, 'Screen Shot 2013-10-25 at 3.53.56 PM.png'),
+(19, 'Screen Shot 2013-10-25 at 3.53.56 PM.png'),
+(20, 'Screen Shot 2013-10-25 at 3.53.56 PM.png'),
+(21, 'Screen Shot 2013-10-25 at 3.53.51 PM.png'),
+(22, 'Screen Shot 2013-10-25 at 3.53.56 PM.png'),
+(23, 'Screen Shot 2013-10-25 at 3.53.56 PM.png'),
+(24, 'Screen Shot 2013-10-25 at 3.53.51 PM.png'),
+(25, 'Screen Shot 2013-10-25 at 3.53.51 PM.png'),
+(26, 'images.png'),
+(27, 'images.png');
 
 -- --------------------------------------------------------
 
@@ -116,20 +107,57 @@ CREATE TABLE `tbl_user` (
   `password` varchar(128) NOT NULL,
   `user_level` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id`, `username`, `password`, `user_level`) VALUES
-(22, 'Bichi', 'Bichi', 0),
-(23, 'nico', 'd659c10e27d52b00987b65e85d99bce5480adcae', 0),
-(24, 'pepe', 'pepe', 0),
-(25, 'nico1', 'nico2', 0),
-(26, 'pepe', '265392dc2782778664cc9d56c8e3cd9956661bb0', 0),
-(27, 'hash', '2346ad27d7568ba9896f1b7da6b5991251debdf2', 0),
-(28, 'banana', '9ae01fbc9c3e989bc35e7c0308bd4a30d5a65e88', 0),
-(29, 'test20', 'de7cabd865ea81f0af7b84d9da5ec5a2c0a0bf0b', 0),
-(30, 'Pepe', '265392dc2782778664cc9d56c8e3cd9956661bb0', 1);
+(34, 'user', '12dea96fec20593566ab75692c9949596833adc9', 0),
+(35, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1),
+(36, 'sadmin', '1a37e5eb4ea24b24b0d287e0df00f91715ca2e04', 9),
+(37, 'user1', 'b3daa77b4c04a9551b8781d03191fe098f325e67', 0),
+(38, 'user2', 'a1881c06eec96db9901c7bbfe41c42a3f08e9cb4', 0),
+(39, 'user3', '0b7f849446d3383546d15a480966084442cd2193', 0);
+
+-- --------------------------------------------------------
+
 --
+-- Table structure for table `tbl_user_module_assignment`
+--
+
+CREATE TABLE `tbl_user_module_assignment` (
+  `module_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`module_id`,`user_id`),
+  KEY `FK_user_module` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_user_module_assignment`
+--
+
+INSERT INTO `tbl_user_module_assignment` (`module_id`, `user_id`) VALUES
+(1, 34),
+(2, 34),
+(3, 34),
+(3, 36),
+(1, 37),
+(3, 37),
+(2, 38),
+(3, 38),
+(1, 39),
+(2, 39);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tbl_user_module_assignment`
+--
+ALTER TABLE `tbl_user_module_assignment`
+  ADD CONSTRAINT `FK_modules_user` FOREIGN KEY (`module_id`) REFERENCES `tbl_modules` (`module_code`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_module_user` FOREIGN KEY (`module_id`) REFERENCES `tbl_modules` (`module_code`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_user_module` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`id`) ON DELETE CASCADE;
