@@ -36,6 +36,7 @@ class UsersController extends Controller
 					'index',
 					'view',
 					'assign',
+					'unassign',
 					//'create',
 				),
 				'users'=>array('*'),
@@ -75,7 +76,7 @@ class UsersController extends Controller
 		$modules = Modules::model()->findAll();
 
 
-		if(isset($_POST['Users']))
+		if (isset($_POST['Users']['id']))
 		{
 			$modelRel = new UserModuleAssignment;
 			$modelRel->module_id = $_POST['Users']['id']; // MEH
@@ -83,6 +84,7 @@ class UsersController extends Controller
 			if ($modelRel->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
+		
 
 		$this->render('assign',array(
 			'model'=>$model,
@@ -90,6 +92,27 @@ class UsersController extends Controller
 		));
 		
 	}
+
+	public function actionUnassign($id)
+	{
+		$model=$this->loadModel($id);
+		$modules = Modules::model()->findAll();
+
+		if (isset($_POST['Users']['id']))
+		{
+			$modelRel = UserModuleAssignment::model();
+			$modelRel->module_id = $_POST['Users']['id']; // MEH
+			$modelRel->user_id = $id;
+			if ($modelRel->delete())
+				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		$this->render('assign',array(
+			'model'=>$model,
+			'modules'=>$modules,
+		));
+	}
+
 
 	/**
 	 * Creates a new model.
