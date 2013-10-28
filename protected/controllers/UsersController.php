@@ -35,6 +35,7 @@ class UsersController extends Controller
 				(
 					'index',
 					'view',
+					'assign',
 					//'create',
 				),
 				'users'=>array('*'),
@@ -66,6 +67,28 @@ class UsersController extends Controller
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
+	}
+	public function actionAssign($id)
+	{
+
+		$model=$this->loadModel($id);
+		$modules = Modules::model()->findAll();
+
+
+		if(isset($_POST['Users']))
+		{
+			$modelRel = new UserModuleAssignment;
+			$modelRel->module_id = $_POST['Users']['id']; // MEH
+			$modelRel->user_id = $id;
+			if ($modelRel->save())
+				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		$this->render('assign',array(
+			'model'=>$model,
+			'modules'=>$modules,
+		));
+		
 	}
 
 	/**

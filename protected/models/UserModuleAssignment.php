@@ -1,22 +1,20 @@
 <?php
 
 /**
- * This is the model class for table "tbl_modules".
+ * This is the model class for table "tbl_user_module_assignment".
  *
- * The followings are the available columns in table 'tbl_modules':
- * @property integer $module_code
- * @property string $module_name
- * @property string $creator
- * @property string $create_date
+ * The followings are the available columns in table 'tbl_user_module_assignment':
+ * @property integer $module_id
+ * @property integer $user_id
  */
-class Modules extends CActiveRecord
+class UserModuleAssignment extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_modules';
+		return 'tbl_user_module_assignment';
 	}
 
 	/**
@@ -27,28 +25,22 @@ class Modules extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('module_name, creator', 'required'),
-			array('module_name', 'length', 'max'=>60),
-			array('creator', 'length', 'max'=>60),
+			array('module_id, user_id', 'required'),
+			array('module_id, user_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('module_code, module_name, creator, create_date', 'safe', 'on'=>'search'),
+			array('module_id, user_id', 'safe', 'on'=>'search'),
 		);
 	}
+
 	/**
 	 * @return array relational rules.
 	 */
-	public function checkExistance($match){
-		return ($this->findByPk($match));
-	}
 	public function relations()
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'pagesT'=>array(self::HAS_MANY, 'Pages', 'module_code'),
-			'users' => array(self::MANY_MANY, 'Users', 'tbl_user_module_assignment(module_id, user_id)'),
-
 		);
 	}
 
@@ -58,10 +50,8 @@ class Modules extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'module_code' => 'Module Code',
-			'module_name' => 'Module Name',
-			'creator' => 'Creator',
-			'create_date' => 'Create Date',
+			'module_id' => 'Module',
+			'user_id' => 'User',
 		);
 	}
 
@@ -83,10 +73,8 @@ class Modules extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('module_code',$this->module_code);
-		$criteria->compare('module_name',$this->module_name,true);
-		$criteria->compare('creator',$this->creator,true);
-		$criteria->compare('create_date',$this->create_date,true);
+		$criteria->compare('module_id',$this->module_id);
+		$criteria->compare('user_id',$this->user_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -97,7 +85,7 @@ class Modules extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Modules the static model class
+	 * @return UserModuleAssignment the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

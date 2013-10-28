@@ -20,7 +20,16 @@
         View Users <?php echo $model->id; ?>
     </div>
     <div class="box-content padd-10">
-        <?php
+    <?php
+        
+    function getModules($modules){
+        $out = '';
+        foreach ($modules as $module) {
+             $out.=$module['module_name'].', ';
+        }
+        return $out;
+    }
+
     $this->widget('zii.widgets.CDetailView', array(
         "tagName"=> "table",
         'data'=>$model,
@@ -29,9 +38,14 @@
             'username'=>'username',
             'password'=>'password',
             'user_level'=>'user_level',
+            array(
+                'name'=>'modules',
+                'type'=>'text',
+                'value'=>getModules($model->modules),
+            )
         ),
     )); ?>
-        
+
     </div>
 </div>
 </div>

@@ -51,6 +51,9 @@ class ModulesController extends Controller
 	 */
 	public function actionView($id)
 	{
+		//$module = $this->loadModel($id);
+		//echo count($module->users);
+		//var_dump($users);
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));

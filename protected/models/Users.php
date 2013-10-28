@@ -43,6 +43,7 @@ class Users extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'modules' => array(self::MANY_MANY, 'Modules', 'tbl_user_module_assignment(module_id, user_id)'),
 		);
 	}
 
