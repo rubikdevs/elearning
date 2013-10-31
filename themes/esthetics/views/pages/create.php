@@ -9,7 +9,13 @@ $this->menu=array(
 	array('label'=>'Manage Pages', 'url'=>array('admin')),
 );
 ?>
-
-<h1>Create Pages</h1>
-
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<div class="shortable-content ui-sortable">
+	<div class="box _75">
+		<div class="box-header">
+			Create Pages
+		</div>
+		<div class="box-content">
+			<?php $this->renderPartial('_form', array('model'=>$model,'question'=>$question)); ?>
+		</div>
+	</div>
+</div>

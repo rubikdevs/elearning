@@ -15,7 +15,7 @@ class PagesController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			//'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -51,8 +51,12 @@ class PagesController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$question = Questions::model()->findAll('page_code='.$id);
+		//var_dump($question);die;
+
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+			'question'=>$question[0],
 		));
 	}
 
@@ -65,18 +69,29 @@ class PagesController extends Controller
 		$model=new Pages;
 		$model->module_code = $module_code;
 		$model->image_uri = $image_uri;
+		$question = new Questions;
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Pages']))
 		{
+
 			$model->attributes=$_POST['Pages'];
-			if($model->save())
+			if (!$model->save()){
+				var_dump('YEAH'); die;
+			}
+
+			$question->attributes = $_POST['Questions'];
+			$question->page_code = $model->page_code;
+
+			if($question->save())
 				$this->redirect(array('view','id'=>$model->page_code));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+			'question'=>$question,
 		));
 	}
 
@@ -140,8 +155,11 @@ class PagesController extends Controller
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Pages');
+		
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+
 		));
 	}
 

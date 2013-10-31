@@ -7,8 +7,6 @@
  * @property integer $page_code
  * @property integer $page_number
  * @property integer $module_code
- * @property string $question
- * @property string $answer
  */
 class Pages extends CActiveRecord
 {
@@ -28,11 +26,11 @@ class Pages extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('page_number, module_code, question, answer, description', 'required'),
+			array('page_number, module_code, description', 'required'),
 			array('page_number, module_code', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('page_code, page_number, module_code, question, answer', 'safe', 'on'=>'search'),
+			array('page_code, page_number, module_code', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,8 +55,6 @@ class Pages extends CActiveRecord
 			'page_code' => 'Page Code',
 			'page_number' => 'Page Number',
 			'module_code' => 'Module Code',
-			'question' => 'Question',
-			'answer' => 'Answer',
 			'description'=> 'Description'
 		);
 	}
@@ -84,8 +80,6 @@ class Pages extends CActiveRecord
 		$criteria->compare('page_code',$this->page_code);
 		$criteria->compare('page_number',$this->page_number);
 		$criteria->compare('module_code',$this->module_code);
-		$criteria->compare('question',$this->question,true);
-		$criteria->compare('answer',$this->answer,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

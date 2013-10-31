@@ -1,20 +1,21 @@
 <?php
 
 /**
- * This is the model class for table "tbl_user_module_assignment".
+ * This is the model class for table "tbl_questions".
  *
- * The followings are the available columns in table 'tbl_user_module_assignment':
- * @property integer $module_id
- * @property integer $user_id
+ * The followings are the available columns in table 'tbl_questions':
+ * @property integer $id
+ * @property string $description
+ * @property string $correct_answer
  */
-class UserModuleAssignment extends CActiveRecord
+class Questions extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_user_module_assignment';
+		return 'tbl_questions';
 	}
 
 	/**
@@ -25,11 +26,10 @@ class UserModuleAssignment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('module_id, user_id', 'required'),
-			array('module_id, user_id', 'numerical', 'integerOnly'=>true),
+			array('description, correct_answer', 'required'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('module_id, user_id', 'safe', 'on'=>'search'),
+			array('id, description, correct_answer', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,11 +50,9 @@ class UserModuleAssignment extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'module_id' => 'Module',
-			'user_id' => 'User',
-			'creator' => 'Creator',
-			'status' => 'Status',
-			'last_page' => 'Last Page',
+			'id' => 'ID',
+			'description' => 'Description',
+			'correct_answer' => 'Correct Answer',
 		);
 	}
 
@@ -76,8 +74,9 @@ class UserModuleAssignment extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('module_id',$this->module_id);
-		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('description',$this->description,true);
+		$criteria->compare('correct_answer',$this->correct_answer,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -88,7 +87,7 @@ class UserModuleAssignment extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return UserModuleAssignment the static model class
+	 * @return Questions the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

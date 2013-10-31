@@ -11,30 +11,37 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php
+	<div class="box _75">
+		<div class="box-header">Assign module</div>
+		<div class="div box-content">
+				<?php
 
-			$options = array();
+				$options = array();
 
-			/* If admin or module already assigned, wont show option */
-			if ($model->user_level<1)                                  
-				foreach($modules as $module)
-					if(!in_array($module, $model->modules))
-						$options[$module->module_code]=$module->module_name;
+				/* If admin or module already assigned, wont show option */
+				if ($model->user_level<1)                                  
+					foreach($modules as $module)
+						if(!in_array($module, $model->modules))
+							$options[$module->module_code]=$module->module_name;
 
-			if (sizeof($options)<1)
-				echo "There's no modules to assign.";
-			else{
-				echo $form->dropDownList($model,'id', $options);
-				echo '</div><div class="row buttons">';
-				echo CHtml::submitButton('Submit');
-
-			}
-
-
-		?>
-	
+				if (sizeof($options)<1)
+				{	?>
+					<div class="form-row">
+						There're no modules to assign.
+					</div>
+					<?php
+				}	
+				else 
+				{	?>
+					<div class="form-row">
+						<?php echo $form->dropDownList($model,'id', $options); ?>
+					</div>
+					<div class="form-row">
+						<?php echo CHtml::submitButton('Submit'); ?>
+					</div>			
+				<?php } ?>
+		</div>
 	</div>
-
+	<br>
 
 <?php $this->endWidget(); ?>

@@ -74,13 +74,14 @@ class UsersController extends Controller
 
 		$model=$this->loadModel($id);
 		$modules = Modules::model()->findAll();
-
+		$selModules = UserModuleAssignment::model()->findAll('user_id ='.$id);
 
 		if (isset($_POST['Users']['id']))
 		{
 			$modelRel = new UserModuleAssignment;
 			$modelRel->module_id = $_POST['Users']['id']; // MEH
 			$modelRel->user_id = $id;
+			$modelRel->creator = Yii::app()->user->name;
 			if ($modelRel->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -89,28 +90,20 @@ class UsersController extends Controller
 		$this->render('assign',array(
 			'model'=>$model,
 			'modules'=>$modules,
+			'selModules'=>$selModules
 		));
 		
 	}
 
-	public function actionUnassign($id)
+	public function actionUnassign($user_id,$module_id)
 	{
-		$model=$this->loadModel($id);
-		$modules = Modules::model()->findAll();
+		$model=$this->loadModel($user_id);
 
-		if (isset($_POST['Users']['id']))
-		{
-			$modelRel = UserModuleAssignment::model();
-			$modelRel->module_id = $_POST['Users']['id']; // MEH
-			$modelRel->user_id = $id;
-			if ($modelRel->delete())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('assign',array(
-			'model'=>$model,
-			'modules'=>$modules,
-		));
+		$modelRel = UserModuleAssignment::model();
+		$modelRel->module_id = $module_id; // MEH
+		$modelRel->user_id = $user_id;
+		if ($modelRel->delete())
+			$this->redirect(array('view','id'=>$model->id));
 	}
 
 

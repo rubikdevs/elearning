@@ -4,7 +4,6 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'modules-form',
@@ -16,21 +15,24 @@
 )); ?>
 
 	
-	<div class="row">
-		<h3>Autor: <?php echo Yii::app()->user->name ?></h3>
+	<div class="form-row">
+		<label for="author">Author: <?php echo Yii::app()->user->name ?></label>
 	</div>
-	<div class="row">
-		<?php echo $form->labelEx($model,'module_name'); ?>
+	<div class="form-row">
+		<label for="" class="normal-field">
+			<strong><?php echo $form->labelEx($model,'module_name'); ?></strong>
+		</label>
+		<div class="form-right-col">
 		<?php echo $form->textField($model,'module_name',array('size'=>60,'maxlength'=>300)); ?>
 		<?php echo $form->hiddenField($model,'creator',array('value'=>Yii::app()->user->name)); ?>
 		<?php echo $form->error($model,'module_name'); ?>
+		</div>
 	</div>
 	
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+	<div class="form-row buttons">
+		
+			<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- form -->

@@ -13,7 +13,10 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/form.css" />
+    <?php if ((Yii::app()->controller->id==="pages") && (Yii::app()->controller->action->id==='view')){?>
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?> /css/ckeditor.css" />
     <?php /* @var $this Controller */
+    }
     Yii::app()->clientScript->registerScript('helpers', '
         baseUrl = '.CJSON::encode(Yii::app()->theme->baseUrl).';
     ');?>
@@ -52,8 +55,39 @@
                             ), 
                             'url'=>array('/users'), 
                             'visible'=>!Yii::app()->user->isGuest
-                        )
-			            
+                        ),
+                        array(
+                            'label'=>'<i class="icon-user"></i>E-learning', 
+                            'itemOptions'=>array(
+                                'title'=>'E-learning'
+                            ), 
+                            'url'=>array('/modules'), 
+                            'visible'=>!Yii::app()->user->isGuest
+                        ),
+                        array(
+                            'label'=>'<i class="icon-user"></i>Examination', 
+                            'itemOptions'=>array(
+                                'title'=>'Examination'
+                            ), 
+                            'url'=>array('/users'), 
+                            'visible'=>!Yii::app()->user->isGuest
+                        ),
+                        array(
+                            'label'=>'<i class="icon-user"></i>Export', 
+                            'itemOptions'=>array(
+                                'title'=>'Export'
+                            ), 
+                            'url'=>array('/users'), 
+                            'visible'=>!Yii::app()->user->isGuest
+                        ),
+			            array(
+                            'label'=>'<i class="icon-user"></i>Import', 
+                            'itemOptions'=>array(
+                                'title'=>'Import'
+                            ), 
+                            'url'=>array('/users'), 
+                            'visible'=>!Yii::app()->user->isGuest
+                        ),
                     ),
                         
 		        )); ?>

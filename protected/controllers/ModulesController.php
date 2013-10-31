@@ -15,7 +15,7 @@ class ModulesController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			// /'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -28,7 +28,7 @@ class ModulesController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','listpages'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -58,7 +58,14 @@ class ModulesController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
-
+	public function actionListpages($module_code)
+	{
+		$pages = Pages::model()->findAll('module_code = '.$module_code);
+		$this->render('listpages',array(
+			'model'=>$this->loadModel($module_code),
+			'pages'=>$pages,
+		));
+	}
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -72,7 +79,11 @@ class ModulesController extends Controller
 
 		if(isset($_POST['Modules']))
 		{
+			$last = Modules::model()->findAll('sort_order=(SELECT max(sort_order) FROM tbl_modules)'); /// MEEEEE
+
 			$model->attributes=$_POST['Modules'];
+			$model->sort_order=$last[0]["sort_order"] + 1;
+
 			if($model->save())
 					$this->redirect(array('view','id'=>$model->module_code));
 			else {
@@ -117,11 +128,22 @@ class ModulesController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		// DELETE ASSIGNMENTS
+		$assigments = UserModuleAssignment::model()->findAll('module_id='.$id);
+		foreach ($assigments as $assigment)
+			$assigment->delete();
+
+		// DELETE PAGEs
+		$pages = Pages::model()->findAll('module_code='.$id);
+		foreach ($pages as $page)
+			$page->delete();
+
+		// DELETE MODEL
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
 	}
 
 	/**
@@ -157,6 +179,8 @@ class ModulesController extends Controller
 	 * @return Modules the loaded model
 	 * @throws CHttpException
 	 */
+
+
 	public function loadModel($id)
 	{
 		$model=Modules::model()->findByPk($id);

@@ -14,6 +14,8 @@ class ImageUploaderController extends CController
             {   
                 $model->image_uri->saveAs('images/'.$model->image_uri);
                 // redirect to success page
+            } else {
+                var_dump('EXISTE');
             }
         }
         $this->render('create', array('model'=>$model));

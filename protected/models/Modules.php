@@ -32,7 +32,7 @@ class Modules extends CActiveRecord
 			array('creator', 'length', 'max'=>60),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('module_code, module_name, creator, create_date', 'safe', 'on'=>'search'),
+			array('module_code, module_name, creator, create_date, sort_order', 'safe', 'on'=>'search'),
 		);
 	}
 	/**
@@ -62,6 +62,7 @@ class Modules extends CActiveRecord
 			'module_name' => 'Module Name',
 			'creator' => 'Creator',
 			'create_date' => 'Create Date',
+			'sort_order' => 'Sort Order'
 		);
 	}
 
@@ -87,6 +88,7 @@ class Modules extends CActiveRecord
 		$criteria->compare('module_name',$this->module_name,true);
 		$criteria->compare('creator',$this->creator,true);
 		$criteria->compare('create_date',$this->create_date,true);
+		$criteria->compare('sort_order',$this->sort_order,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -2,11 +2,6 @@
 /* @var $this PagesController */
 /* @var $model Pages */
 
-$this->breadcrumbs=array(
-	'Pages'=>array('index'),
-	$model->page_code=>array('view','id'=>$model->page_code),
-	'Update',
-);
 
 $this->menu=array(
 	array('label'=>'List Pages', 'url'=>array('index')),

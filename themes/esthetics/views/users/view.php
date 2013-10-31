@@ -1,8 +1,9 @@
-<div class="non-shortable-content"></div>
+
 
 <?php
 /* @var $this UsersController */
 /* @var $model Users */
+$users = Users::model()->attributeLabels();
 
 
     echo '<div class="non-shortable-content"></div>';
@@ -14,39 +15,45 @@
   
 
 ?>
-<div class="non-shortable-content"></div>
-<div class="box _50">
-    <div class="box-header">
-        View Users <?php echo $model->id; ?>
-    </div>
-    <div class="box-content padd-10">
-    <?php
-        
-    function getModules($modules){
+
+<?php  function getModules($modules){
         $out = '';
         foreach ($modules as $module) {
              $out.=$module['module_name'].', ';
         }
         return $out;
     }
+?>
 
-    $this->widget('zii.widgets.CDetailView', array(
-        "tagName"=> "table",
-        'data'=>$model,
-        'attributes'=>array(
-            'id'=>'id',
-            'username'=>'username',
-            'password'=>'password',
-            'user_level'=>'user_level',
-            array(
-                'name'=>'modules',
-                'type'=>'text',
-                'value'=>getModules($model->modules),
-            )
-        ),
-    )); ?>
-
-    </div>
+<div class="box _50">
+    <div class="box-header">Viewing <b><?php echo $model->username; ?></b></div>
+    <table class="static_table" style="border:1px solid #dfdfdf">
+        <tbody>
+            <tr>
+                <td><?php echo $users['id'] ?></td>
+                <td><?php echo $model->id; ?></td>
+            </tr>
+            <tr>
+                <td><?php echo $users['username'] ?></td>
+                <td><?php echo $model->username; ?></td>
+            </tr>
+            <tr>
+                <td><?php echo $users['password'] ?></td>
+                <td><?php echo $model->password; ?></td>
+            </tr>
+            <tr>
+                <td><?php echo $users['user_level'] ?></td>
+                <td><?php echo $model->user_level; ?></td>
+            </tr>
+            <tr>
+                <td>Modules</td>
+                <td><?php
+                    $toBeTrimmed ='';
+                    foreach ($model->modules as $module) 
+                        $toBeTrimmed .= $module->module_name.', ';
+                    echo rtrim($toBeTrimmed,',');
+                ?></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-</div>
-
