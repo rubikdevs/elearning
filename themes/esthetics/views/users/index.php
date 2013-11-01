@@ -12,8 +12,7 @@
             <table cellpadding="0" cellspacing="0" border="0" class="dataTable dTable" id="dynamic" aria-describedby="dynamic_info">
                 <thead>
                     <tr role="row">
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Id">Id</th>
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Username">Username</th>
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Employee Code">Employee Code</th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="User Level">User Level</th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Action">Action</th>
                     </tr>

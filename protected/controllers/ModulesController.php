@@ -44,17 +44,49 @@ class ModulesController extends Controller
 			),
 		);
 	}
-		public function actionMoveUp($id) {
-		// $id => Page Code
+	public function actionMoveUp($id) {
 		$model=$this->loadModel($id);
+		$all = Modules::model()->findAll();
+		$array = array();
+		foreach ($all as $module)
+			$array[$module->sort_order]=$module->module_code;
+		ksort($array);
+		reset($array);
+		if ($model->sort_order>key($array))
+		{
+			$keys = array_flip(array_keys($array));
+			$values = array_values($array);
+			$upper = Modules::model()->findByPk($values[$keys[$model->sort_order]-1]);
+			$upperTmp = $upper->sort_order;
+			$upper->sort_order = $model->sort_order;
+			$model->sort_order = $upperTmp;
 
-		//if($model->save())
-			$this->redirect(array('modules/index'));
-
-
+			if(($model->save()) && ($upper->save()))
+				$this->redirect(array('modules/index'));
+		}
+		$this->redirect(array('modules/index'));
 	}
-	public function actionMovdeDown($id) {
+	public function actionMoveDown($id) {
+		$model=$this->loadModel($id);
+		$all = Modules::model()->findAll();
+		$array = array();
+		foreach ($all as $module)
+			$array[$module->sort_order]=$module->module_code;
+		ksort($array);
+		end($array);
+		if ($model->sort_order<key($array))
+		{
+			$keys = array_flip(array_keys($array));
+			$values = array_values($array);
+			$bottom = Modules::model()->findByPk($values[$keys[$model->sort_order]+1]);
+			$bottomTmp = $bottom->sort_order;
+			$bottom->sort_order = $model->sort_order;
+			$model->sort_order = $bottomTmp;
 
+			if(($model->save()) && ($bottom->save()))
+				$this->redirect(array('modules/index'));
+		}
+		$this->redirect(array('modules/index'));
 	}
 	/**
 	 * Displays a particular model.
@@ -162,8 +194,14 @@ class ModulesController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Modules');
+		$dataProvider=new CActiveDataProvider('Modules', 
+			array(
+    		'criteria' => array(
+       		 'order'  => 'sort_order asc',
+        		'offset' => 2, // zero-based index, third record = 2
+    		)));
 		$this->render('index',array(
+
 			'dataProvider'=>$dataProvider,
 		));
 	}

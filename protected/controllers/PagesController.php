@@ -28,7 +28,7 @@ class PagesController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','uploadImage'),
+				'actions'=>array('index','view','uploadImage','delete'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -96,7 +96,7 @@ class PagesController extends Controller
 	}
 
 
-	public function actionUploadImage($module_code) {
+	public function actionUploadImage($module_code,$action,$page_code) {
 		$model=new ImageUploader;
         if(isset($_POST['ImageUploader']))
         {
@@ -105,8 +105,11 @@ class PagesController extends Controller
             if($model->save())
             {   
                 $model->image_uri->saveAs('images/'.$model->image_uri);
-                $this->redirect(array('create','module_code'=>$module_code, 'image_uri'=> 'images/'.$model->image_uri));
-                // redirect to success page
+                if ($action=='create')
+                	$this->redirect(array($action,'module_code'=>$module_code, 'image_uri'=> 'images/'.$model->image_uri));
+                elseif ($action=='update'){
+                	$this->redirect(array($action,'id'=>$page_code, 'image_uri'=> 'images/'.$model->image_uri));
+                }
             }
         }
         $this->render('/ImageUploader/create', array('model'=>$model));
@@ -117,22 +120,36 @@ class PagesController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	public function actionUpdate($id,$image_uri=null)
 	{
 		$model=$this->loadModel($id);
-
+		$question = Questions::model()->findAll('page_code='.$id);
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+		$question = $question[0];
+
+		if ($image_uri!=null)
+		{	
+			$model->image_uri = $image_uri;
+			$model->save();
+		}
 
 		if(isset($_POST['Pages']))
 		{
 			$model->attributes=$_POST['Pages'];
-			if($model->save())
+			if (!$model->save()){
+				var_dump('YEAH'); die;
+			}
+			$question->attributes = $_POST['Questions'];
+			$question->page_code = $model->page_code;
+
+			if($question->save())
 				$this->redirect(array('view','id'=>$model->page_code));
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
+			'question'=>$question
 		));
 	}
 
@@ -141,13 +158,16 @@ class PagesController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionDelete($id)
+	public function actionDelete($id,$module_code)
 	{
+		$question = Questions::model()->findAll('page_code='.$id);
+		$question[0]->delete();
 		$this->loadModel($id)->delete();
 
+		
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('modules/view&id='.$module_code));
 	}
 
 	/**

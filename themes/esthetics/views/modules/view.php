@@ -8,7 +8,7 @@
 ?>
 
 <div class="box _75">
-	<div class="box-header">View Modules #1</div>
+	<div class="box-header">Viewing Module #<?php  echo $model->module_code;?></div>
 	<table class="static_table" style="border:1px solid #dfdfdf">
 		<tbody>
 			<tr>
@@ -32,7 +32,7 @@
 				<td><?php
 					$toBeTrimmed ='';
 					foreach ($model->users as $user) 
-						 $toBeTrimmed .= $user->username.', ';
+						 $toBeTrimmed .= $user->username.',';
 					echo rtrim($toBeTrimmed,',');
 				?></td>
 			</tr>
@@ -40,7 +40,7 @@
 	</table>
 </div>
 <div class="_75 padd-10">
-<?php echo CHtml::link('<i class="icon-edit"></i>Add Page', array('pages/create', 'module_code'=>'#'),array('class'=>'grey display_but')); ?>
+<?php echo CHtml::link('<i class="icon-edit"></i>Add Page', array('pages/create', 'module_code'=>$model->module_code),array('class'=>'grey display_but')); ?>
 </div>
 <div class="box _75">
 	<div class="box-header">Pages</div>
@@ -57,11 +57,11 @@
 				foreach ($model->pagesT as $page)
 				{
 					echo '<tr>';
-					echo '<td>'.$page->page_number.'</td>';
+					echo '<td>'.CHtml::link($page->page_number, array('pages/view', 'id'=>CHtml::encode($page->page_code))) .'</td>';
 					echo '<td>fsdflsdkfsldkjflskdjf</td>';
 					echo '<td>'
-						.CHtml::link('<i class="icon-edit"></i>Edit', array('pages/create', 'module_code'=>'#'),array('class'=>'grey display_but'))
-						.CHtml::link('<i class="icon-edit"></i>Delete', array('pages/create', 'module_code'=>'#'),array('class'=>'grey display_but'))
+						.CHtml::link('<i class="icon-edit"></i>Edit', array('pages/update', 'id'=>$page->page_code),array('class'=>'grey display_but'))
+						.CHtml::link('<i class="icon-edit"></i>Delete', array('pages/delete', 'id'=>$page->page_code, 'module_code'=>$model->module_code),array('class'=>'grey display_but'))
 						.'</td>';
 					echo '</tr>';
 				}

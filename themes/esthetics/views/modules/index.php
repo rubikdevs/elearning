@@ -26,14 +26,15 @@
                 <?php 
         
                     $dataProvider->pagination->pageSize = 1000000;
-                        
+                    
+
+
                     $this->widget('zii.widgets.CListView', array(
                         'template'=> "{items}",
                         'enablePagination'=>false,
                         'pager'=>false,
                         'dataProvider'=>$dataProvider,
-    	                'itemView'=>'_view',
-                        'sortableAttributes'=>'sort_order'
+    	                'itemView'=>'_view'
                     )); 
                 ?>
                 </tbody>

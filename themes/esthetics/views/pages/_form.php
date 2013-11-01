@@ -31,14 +31,15 @@
 	</div>
 
 	<div class="form-row">
-		<?php if (!isset($model->image_uri))
+		<?php 
+		if ((!isset($model->image_uri)) or ($model->image_uri==""))
 		{?>
-		<label for="image_uri">
-			Image:
-		</label>
-		<div class="form-right-col">
-			<?php echo CHtml::link('<i class="icon-upload"></i>Upload', array('UploadImage', 'module_code'=>$model->module_code), array('class'=>'grey display_but')); ?>
-		</div>
+			<label for="image_uri">
+				Image:
+			</label>
+			<div class="form-right-col">
+				<?php echo CHtml::link('<i class="icon-upload"></i>Upload', array('UploadImage', 'module_code'=>$model->module_code, 'action'=>Yii::app()->controller->action->id, 'page_code'=>$model->page_code), array('class'=>'grey display_but')); ?>
+			</div>
 		<?php } else { ?>
 			<label for="image_uri">
 			Image Url:

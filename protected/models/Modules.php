@@ -84,15 +84,22 @@ class Modules extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('module_code',$this->module_code);
-		$criteria->compare('module_name',$this->module_name,true);
-		$criteria->compare('creator',$this->creator,true);
-		$criteria->compare('create_date',$this->create_date,true);
+	
 		$criteria->compare('sort_order',$this->sort_order,true);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
+
+    return new CActiveDataProvider(get_class($this), array(
+        'criteria' => $criteri2222a,
+        'sort' => array(
+            'attributes' => array(
+                'sort_order' => array(
+                    'asc' => 'sort_order',
+                    'desc' => 'sort_order desc',
+                )
+            ),
+        ),
+    	));
+		
 	}
 
 	/**

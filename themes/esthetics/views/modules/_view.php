@@ -27,8 +27,9 @@
     </td>
     <td>
     <?php
+        //echo CHtml::encode($data->sort_order); 
         echo CHtml::link('<i class="icon-arrow-up"></i>', array('modules/moveUp', 'id'=>CHtml::encode($data->module_code)),array('class'=>'grey display_but'));
-        echo CHtml::link('<i class="icon-arrow-down"></i>', array('pages/create', 'module_code'=>'#'),array('class'=>'grey display_but'));
+        echo CHtml::link('<i class="icon-arrow-down"></i>', array('modules/moveDown', 'id'=>CHtml::encode($data->module_code)),array('class'=>'grey display_but'));
     ?>
     <td><?php 
 

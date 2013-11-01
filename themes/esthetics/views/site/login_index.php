@@ -21,7 +21,7 @@
            </td>
           </tr>
           <tr>
-            <td><label for="username"><strong>Username :</strong></label></td>
+            <td><label for="username"><strong>username :</strong></label></td>
             <td><?php echo $form->textField($model,'username', array('placeholder'=>'type your username here..')); ?>
             </td>
           </tr>

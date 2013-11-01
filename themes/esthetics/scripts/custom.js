@@ -222,7 +222,7 @@ $(document).ready(function(){
 	oTable = $('.marianTable').dataTable({
 		"bJQueryUI": false,
 		"bAutoWidth": false,
-		"aaSorting": [[0,'desc']],
+		"bSort": false,
 		"sPaginationType": "full_numbers",
 		"sDom": '<"H"fl>t<"F"ip>',
 		"aoColumns": [
