@@ -28,7 +28,7 @@ class ModulesController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','listpages'),
+				'actions'=>array('index','view','listpages','moveUp','moveDown'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -44,7 +44,18 @@ class ModulesController extends Controller
 			),
 		);
 	}
+		public function actionMoveUp($id) {
+		// $id => Page Code
+		$model=$this->loadModel($id);
 
+		//if($model->save())
+			$this->redirect(array('modules/index'));
+
+
+	}
+	public function actionMovdeDown($id) {
+
+	}
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed

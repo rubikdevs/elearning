@@ -19,7 +19,7 @@
   <div class="shortable-content">
   
   
-		  <div class="box _100">
+		  <div class="box _50">
 		    <div class="box-header">
 		     	Create Users
 		     </div>

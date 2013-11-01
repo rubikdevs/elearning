@@ -106,6 +106,6 @@
 
 	
     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/scripts/script.js" /></script>
-
+    
 </body>
 </html>

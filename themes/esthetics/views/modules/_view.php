@@ -16,7 +16,6 @@
     <td><?php echo CHtml::encode($data->module_name); ?> </td>
     <td><?php echo CHtml::encode($data->creator); ?></td>
     <td><?php echo CHtml::encode($data->create_date); ?></td>
-    <td><?php echo CHtml::encode($data->sort_order); ?></td>
     <td><?php
     	$toBeTrimmed ='';
 		foreach ($data->pagesT as $page) 
@@ -26,12 +25,17 @@
 		
     	?>
     </td>
+    <td>
+    <?php
+        echo CHtml::link('<i class="icon-arrow-up"></i>', array('modules/moveUp', 'id'=>CHtml::encode($data->module_code)),array('class'=>'grey display_but'));
+        echo CHtml::link('<i class="icon-arrow-down"></i>', array('pages/create', 'module_code'=>'#'),array('class'=>'grey display_but'));
+    ?>
     <td><?php 
 
 //echo CHtml::link('<i class="icon-edit"></i>Manage Module', array('assign', 'id'=>CHtml::encode($data->id)), array('class'=>'grey display_but'));
 //echo CHtml::link('<i class="icon-edit"></i>Edit', array('update', 'id'=>CHtml::encode($data->id)), array('class'=>'grey display_but'));
 //echo CHtml::link('<i class="icon-trash"></i>Delete', array('delete', 'id'=>CHtml::encode($data->id)), array('class'=>'grey display_but'));
-    echo CHtml::link('<i class="icon-edit"></i>Add Pages', array('pages/create', 'module_code'=>$data->module_code),array('class'=>'grey display_but')); 
+    //echo CHtml::link('<i class="icon-edit"></i>Add Pages', array('pages/create', 'module_code'=>$data->module_code),array('class'=>'grey display_but')); 
     echo CHtml::link('<i class="icon-edit"></i>Edit', array('modules/update', 'id'=>$data->module_code),array('class'=>'grey display_but'));
     echo CHtml::link('<i class="icon-edit"></i>Delete', array('modules/delete', 'id'=>$data->module_code),array('class'=>'grey display_but'));
     ?>

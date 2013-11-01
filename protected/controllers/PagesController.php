@@ -95,6 +95,7 @@ class PagesController extends Controller
 		));
 	}
 
+
 	public function actionUploadImage($module_code) {
 		$model=new ImageUploader;
         if(isset($_POST['ImageUploader']))
