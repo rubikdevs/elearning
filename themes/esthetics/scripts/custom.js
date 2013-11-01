@@ -196,12 +196,44 @@ $(document).ready(function(){
 	
 	
 //===== Dynamic data table =====//
+
+	jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+	    "num-html-pre": function ( a ) {
+	        var x = String(a).replace( /<[\s\S]*?>/g, "" );
+	        return parseFloat( x );
+	    },
+	 
+	    "num-html-asc": function ( a, b ) {
+	        return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+	    },
+	 
+	    "num-html-desc": function ( a, b ) {
+	        return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+	    }
+	});
 	
 	oTable = $('.dTable').dataTable({
 		"bJQueryUI": false,
 		"bAutoWidth": false,
 		"sPaginationType": "full_numbers",
 		"sDom": '<"H"fl>t<"F"ip>'
+	});
+
+	oTable = $('.marianTable').dataTable({
+		"bJQueryUI": false,
+		"bAutoWidth": false,
+		"aaSorting": [[0,'desc']],
+		"sPaginationType": "full_numbers",
+		"sDom": '<"H"fl>t<"F"ip>',
+		"aoColumns": [
+			{ "bSortable": false },
+            { "bSortable": false },
+            { "bSortable": false },
+            { "bSortable": false },
+            { "bSortable": false },
+            { "bSortable": false },
+            { "bSortable": false }, 
+        ]
 	});
 	
 	
