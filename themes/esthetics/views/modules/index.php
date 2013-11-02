@@ -17,7 +17,7 @@
                         <th  role="columnheader" tabindex="0"  rowspan="1" colspan="1" aria-label="Module Name">Name</th>
                         <th  role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Creator">Creator</th>
                         <th  role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Create Date">Create Date</th>
-                        <th  role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Pages">Pages</th>
+                        <th  role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Pages">Page Count</th>
     					<th  role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Sort Order">Sort</th>
     					<th  role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Action">Action</th>               
                     </tr>

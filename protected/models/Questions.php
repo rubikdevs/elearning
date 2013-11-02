@@ -51,8 +51,8 @@ class Questions extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'description' => 'Description',
-			'correct_answer' => 'Correct Answer',
+			'description' => 'Question',
+			'correct_answer' => 'Answer',
 		);
 	}
 

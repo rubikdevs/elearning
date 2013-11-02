@@ -18,16 +18,14 @@
 
 
 	<?php echo $form->errorSummary($model); ?>
-
-
 	<div class="form-row">
-		<label for="page_number">
-			<strong><?php echo $form->labelEx($model,'page_number'); ?></strong>
+		<label for="description">
+			<strong><?php echo $form->labelEx($model,'title'); ?></strong>
 		</label>
 		<div class="form-right-col">
-			<?php echo $form->textField($model,'page_number', array('class'=>'_100F')); ?>
+			<?php echo $form->textField($model,'title'); ?>
 		</div>
-		<?php echo $form->error($model,'page_number'); ?>
+		<?php echo $form->error($model,'title'); ?>
 	</div>
 
 	<div class="form-row">
@@ -50,11 +48,6 @@
 			<img src="<?php echo $model->image_uri ?>" alt="">
 			<input type="hidden" value="<?php echo $model->image_uri ?>" id="image_uri">
 		<?php } ?>
-
-
-
-
-
 
 
 	</div>

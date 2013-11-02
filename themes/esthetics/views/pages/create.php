@@ -3,11 +3,11 @@
 /* @var $model Pages */
 
 
-
-$this->menu=array(
-	array('label'=>'List Pages', 'url'=>array('index')),
-	array('label'=>'Manage Pages', 'url'=>array('admin')),
-);
+	$this->breadcrumbs=array(
+	'Modules'=>array('modules/index'),
+	'Module #'.$model->module_code=>array('modules/view&id='.$model->module_code),
+	'Adding Page'
+	);
 ?>
 <div class="shortable-content ui-sortable">
 	<div class="box _75">

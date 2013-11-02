@@ -94,10 +94,18 @@ class ModulesController extends Controller
 	 */
 	public function actionView($id)
 	{
-		//$module = $this->loadModel($id);
-		//echo count($module->users);
-		//var_dump($users);
+
+		$criteria=new CDbCriteria(array(                    
+            'order'=>'page_number asc',
+            'condition'=>'module_code='.$id
+		));
+
+		$dataProvider=new CActiveDataProvider('Pages', array(
+		    'criteria'=>$criteria,
+		));
+
 		$this->render('view',array(
+			'dataProvider'=>$dataProvider,
 			'model'=>$this->loadModel($id),
 		));
 	}

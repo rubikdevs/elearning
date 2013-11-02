@@ -2,7 +2,10 @@
 /* @var $this PagesController */
 /* @var $model Pages */
 
-
+	$this->breadcrumbs=array(
+	'Module #'.$model->module_code=>array('modules/view&id='.$model->module_code),
+	'Updating Page #'.$model->page_code
+	);
 ?>
 
 

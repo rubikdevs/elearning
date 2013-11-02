@@ -1,4 +1,8 @@
-
+<?php	$this->breadcrumbs=array(
+	'Modules'=>array('modules/index'),
+	'Module #'.$model->module_code=>array('modules/view&id='.$model->module_code),
+	'Viewing Page #'.$model->page_code
+	);?>
 	<script>
 
 		CKEDITOR.disableAutoInline = true;

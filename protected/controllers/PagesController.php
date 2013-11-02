@@ -28,7 +28,7 @@ class PagesController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','uploadImage','delete'),
+				'actions'=>array('index','view','uploadImage','delete','moveUp','moveDown'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -60,6 +60,54 @@ class PagesController extends Controller
 		));
 	}
 
+	public function actionMoveUp($id,$module_code){
+		$model=$this->loadModel($id);
+		$all = Pages::model()->findAll('module_code='.$module_code);
+		$array = array();
+		foreach ($all as $page)
+			$array[$page->page_number]=$page->page_code;
+		ksort($array);
+		reset($array);
+
+		if ($model->page_number>key($array))
+		{
+			$keys = array_flip(array_keys($array));
+			$values = array_values($array);
+
+			$upper = Pages::model()->findByPk($values[$keys[$model->page_number]-1]);
+			$upperTmp = $upper->page_number;
+			$upper->page_number = $model->page_number;
+			$model->page_number = $upperTmp;
+
+			if(($model->save()) && ($upper->save()))
+				$this->redirect(array('modules/view','id'=>$module_code));
+		}
+		$this->redirect(array('modules/view','id'=>$module_code));
+	}
+
+	public function actionMoveDown($id,$module_code){
+		$model=$this->loadModel($id);
+		$all = Pages::model()->findAll('module_code='.$module_code);
+		$array = array();
+		foreach ($all as $page)
+			$array[$page->page_number]=$page->page_code;
+		ksort($array);
+		end($array);
+		if ($model->page_number<key($array))
+		{
+			$keys = array_flip(array_keys($array));
+			$values = array_values($array);
+
+			$bottom = Pages::model()->findByPk($values[$keys[$model->page_number]+1]);
+			$bottomTmp = $bottom->page_number;
+			$bottom->page_number = $model->page_number;
+			$model->page_number = $bottomTmp;
+
+			if(($model->save()) && ($bottom->save()))
+				$this->redirect(array('modules/view','id'=>$module_code));
+		}
+		$this->redirect(array('modules/view','id'=>$module_code));
+	}
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -78,6 +126,17 @@ class PagesController extends Controller
 		{
 
 			$model->attributes=$_POST['Pages'];
+
+			//get last number page,
+			$pages = Pages::model()->findAll('module_code='.$module_code);
+			$array = array();
+			foreach ($pages as $page)
+				$array[$page->page_number] = $page->page_code;
+			ksort($array);
+			end($array);
+
+			$model->page_number = key($array)+1;
+
 			if (!$model->save()){
 				var_dump('YEAH'); die;
 			}
@@ -160,8 +219,21 @@ class PagesController extends Controller
 	 */
 	public function actionDelete($id,$module_code)
 	{
+		//move all page numbers
+		$thisPage = Pages::model()->findByPk($id);
+		$pages = Pages::model()->findAll('module_code='.$module_code);
+		foreach($pages as $page)
+		{
+			if ($page->page_number>$thisPage->page_number)
+			{
+				$page->page_number = $page->page_number-1;
+				$page->save();
+			}
+		}
+		//delete all questions
 		$question = Questions::model()->findAll('page_code='.$id);
 		$question[0]->delete();
+		//delete model
 		$this->loadModel($id)->delete();
 
 		

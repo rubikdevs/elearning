@@ -48,11 +48,11 @@ class CBreadcrumbs extends CWidget
 	/**
 	 * @var string the tag name for the breadcrumbs container tag. Defaults to 'div'.
 	 */
-	public $tagName='ul';
+	public $tagName='div';
 	/**
 	 * @var array the HTML attributes for the breadcrumbs container tag.
 	 */
-	public $htmlOptions=array('class'=>'breadcrumbs-two');
+	public $htmlOptions=array('class'=>'padd-10');
 	/**
 	 * @var boolean whether to HTML encode the link labels. Defaults to true.
 	 */
@@ -89,14 +89,14 @@ class CBreadcrumbs extends CWidget
 	 * label while "{url}" will be replaced by the URL of the item.
 	 * @since 1.1.11
 	 */
-	public $activeLinkTemplate='<li><a href="{url}">{label}</a></li>';
+	public $activeLinkTemplate='<a href="{url}">{label}</a>';
 	/**
 	 * @var string String, specifies how each inactive item is rendered. Defaults to
 	 * "<span>{label}</span>", where "{label}" will be replaced by the corresponding item label.
 	 * Note that inactive template does not have "{url}" parameter.
 	 * @since 1.1.11
 	 */
-	public $inactiveLinkTemplate='<li><a href="#">{label}</a></li>';
+	public $inactiveLinkTemplate='{label}';
 	/**
 	 * @var string the separator between links in the breadcrumbs. Defaults to ' &raquo; '.
 	 */
