@@ -43,7 +43,12 @@ $users = Users::model()->attributeLabels();
             </tr>
             <tr>
                 <td><?php echo $users['user_level'] ?></td>
-                <td><?php echo $model->user_level; ?></td>
+                <td><?php if ($model->user_level==0)
+                            echo 'User';
+                        elseif ($model->user_level==1)
+                            echo 'Admin';
+                        else
+                            echo 'Super Admin'; ?></td>
             </tr>
             <tr>
                 <td>Modules</td>

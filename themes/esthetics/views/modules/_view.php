@@ -18,8 +18,12 @@
     <td><?php echo CHtml::encode($data->create_date); ?></td>
     <td><?php
     	$toBeTrimmed ='';
+        $pages=array();
 		foreach ($data->pagesT as $page) 
-			 $toBeTrimmed .= CHtml::link($page->page_number, array('pages/view', 'id'=>$page->page_code)).',';
+		  $pages[]=$page->page_number;
+        asort($pages);
+        foreach ($pages as $p)
+            $toBeTrimmed .= $p.',';
 		echo rtrim($toBeTrimmed,',');
 
 		

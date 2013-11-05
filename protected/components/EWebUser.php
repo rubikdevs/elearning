@@ -9,6 +9,12 @@ class EWebUser extends CWebUser
     );
  
     protected $_model;
+    public function getLevel()
+    {
+        return $this->user_level;       
+    }
+
+
  
     function isAdmin()
     {
