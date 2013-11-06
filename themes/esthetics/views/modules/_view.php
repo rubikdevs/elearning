@@ -21,12 +21,7 @@
         $pages=array();
 		foreach ($data->pagesT as $page) 
 		  $pages[]=$page->page_number;
-        asort($pages);
-        foreach ($pages as $p)
-            $toBeTrimmed .= $p.',';
-		echo rtrim($toBeTrimmed,',');
-
-		
+         echo sizeof($pages);	
     	?>
     </td>
     <td>
