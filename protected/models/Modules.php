@@ -48,6 +48,7 @@ class Modules extends CActiveRecord
 		return array(
 			'pagesT'=>array(self::HAS_MANY, 'Pages', 'module_code'),
 			'users' => array(self::MANY_MANY, 'Users', 'tbl_user_module_assignment(module_id, user_id)'),
+			'pagesCount'=>array(self::STAT, 'Pages', 'module_code'),
 
 		);
 	}

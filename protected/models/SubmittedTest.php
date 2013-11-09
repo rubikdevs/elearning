@@ -1,22 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "tbl_user".
+ * This is the model class for table "tbl_submitted_test".
  *
- * The followings are the available columns in table 'tbl_user':
+ * The followings are the available columns in table 'tbl_submitted_test':
  * @property integer $id
- * @property string $username
- * @property string $password
- * @property string $email
+ * @property integer $test_id
+ * @property string $answer
+ * @property integer $question_id
+ * @property integer $number
  */
-class Users extends CActiveRecord
+class SubmittedTest extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_user';
+		return 'tbl_submitted_test';
 	}
 
 	/**
@@ -27,11 +28,11 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, user_level', 'required'),
-			array('username, password', 'length', 'max'=>128),
+			array('test_id, answer, question_id, number', 'required'),
+			array('test_id, question_id, number', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, password, user_level', 'safe', 'on'=>'search'),
+			array('id, test_id, answer, question_id, number', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -43,8 +44,8 @@ class Users extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'UserModuleAssignment'=>array(self::HAS_MANY, 'UserModuleAssignment', 'user_id'),
-			'modules' => array(self::MANY_MANY, 'Modules', 'tbl_user_module_assignment(module_id, user_id)','through' => 'UserModuleAssignment'),
+			'test'=>array(self::BELONGS_TO, 'Test', 'test_id'),
+			'question'=>array(self::HAS_ONE,'QuestionTest','question_id'),
 		);
 	}
 
@@ -55,24 +56,13 @@ class Users extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'username' => 'Employee Code',
-			'password' => 'Password',
-			'user_level' => 'User Level',
+			'test_id' => 'Test',
+			'answer' => 'Answer',
+			'question_id' => 'Question',
+			'number' => 'Number',
 		);
 	}
-	public function getHash($password)
-	{
-		return sha1($password);
-	}
 
-	public function hashPassword()
-	{
-		$this->password = $this->getHash($this->password);
-	}
-	public function validatePassword($password)
-	{
-		return $this->getHash($password)===$this->password;
-	}
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
@@ -92,9 +82,10 @@ class Users extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('password',$this->password,true);
-		$criteria->compare('user_level',$this->user_level,true);
+		$criteria->compare('test_id',$this->test_id);
+		$criteria->compare('answer',$this->answer,true);
+		$criteria->compare('question_id',$this->question_id);
+		$criteria->compare('number',$this->number);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -105,7 +96,7 @@ class Users extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Users the static model class
+	 * @return SubmittedTest the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

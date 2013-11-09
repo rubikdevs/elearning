@@ -15,6 +15,8 @@ class UserIdentity extends CUserIdentity
 	 * against some persistent user identity storage (e.g. database).
 	 * @return boolean whether authentication succeeds.
 	 */
+	private $_id = NULL;
+
 	public function authenticate()
 	{
 
@@ -25,8 +27,13 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
 		else{
 			$this->errorCode=self::ERROR_NONE;
+			$this->_id = $users->id;
 			$this->setState('user_level', $users->user_level);
 		}
 		return !$this->errorCode;
 	}
+
+	public function getId() {
+        return $this->_id;
+    }
 }

@@ -82,6 +82,7 @@ class UsersController extends Controller
 			$modelRel->module_id = $_POST['Users']['id']; // MEH
 			$modelRel->user_id = $id;
 			$modelRel->creator = Yii::app()->user->name;
+			$modelRel->last_page = 1;
 			if ($modelRel->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

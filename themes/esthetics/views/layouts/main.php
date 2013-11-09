@@ -54,15 +54,15 @@
                                 'title'=>'Manage Users'
                             ), 
                             'url'=>array('/users'), 
-                            'visible'=>!Yii::app()->user->isGuest
+                            'visible'=>((!Yii::app()->user->isGuest) && Yii::app()->user->canAccess(1))
                         ),
                         array(
-                            'label'=>'<i class="icon-user"></i>E-learning', 
+                            'label'=>'<i class="icon-user"></i>Manage Modules', 
                             'itemOptions'=>array(
-                                'title'=>'E-learning'
+                                'title'=>'Manage Modules'
                             ), 
                             'url'=>array('/modules'), 
-                            'visible'=>!Yii::app()->user->isGuest
+                            'visible'=>((!Yii::app()->user->isGuest) && Yii::app()->user->canAccess(1))
                         ),
                         array(
                             'label'=>'<i class="icon-user"></i>Examination', 
@@ -73,12 +73,28 @@
                             'visible'=>!Yii::app()->user->isGuest
                         ),
                         array(
+                            'label'=>'<i class="icon-user"></i>E-Learning', 
+                            'itemOptions'=>array(
+                                'title'=>'E-Learning'
+                            ), 
+                            'url'=>array('/elearning'), 
+                            'visible'=>((!Yii::app()->user->isGuest) && (Yii::app()->user->isUser()))
+                        ),
+                        array(
+                            'label'=>'<i class="icon-user"></i>Test', 
+                            'itemOptions'=>array(
+                                'title'=>'Test'
+                            ), 
+                            'url'=>array('/test'), 
+                            'visible'=>((!Yii::app()->user->isGuest) && (Yii::app()->user->isUser()))
+                        ),
+                        array(
                             'label'=>'<i class="icon-user"></i>Export', 
                             'itemOptions'=>array(
                                 'title'=>'Export'
                             ), 
                             'url'=>array('/users'), 
-                            'visible'=>!Yii::app()->user->isGuest
+                            'visible'=>((!Yii::app()->user->isGuest) && Yii::app()->user->canAccess(1))
                         ),
 			            array(
                             'label'=>'<i class="icon-user"></i>Import', 
@@ -86,7 +102,7 @@
                                 'title'=>'Import'
                             ), 
                             'url'=>array('/users'), 
-                            'visible'=>!Yii::app()->user->isGuest
+                            'visible'=>((!Yii::app()->user->isGuest) && Yii::app()->user->canAccess(1))
                         ),
                     ),
                         

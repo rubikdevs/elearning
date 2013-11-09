@@ -94,6 +94,8 @@ class SiteController extends Controller
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login()) 
 				//$this->redirect(Yii::app()->user->returnUrl);    REDIRECTS TO INDEX
+				if (Yii::app()->user->isUser())
+					$this->redirect(array('/elearning/'));
 				$this->redirect(array('/users/'));
 		}
 		// display the login form

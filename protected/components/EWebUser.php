@@ -3,7 +3,7 @@ class EWebUser extends CWebUser
 {
     private $_userTable = array
     (
-        0=>'Normal',
+        0=>'User',
         1=>'Admin',
         9=>'SuperAdmin'
     );
@@ -16,6 +16,10 @@ class EWebUser extends CWebUser
 
 
  
+    public function isUser()
+    {
+        return (Yii::app()->user->isGuest) ? FALSE : $this->user_level == 0;  
+    }
     function isAdmin()
     {
         //Access this via Yii::app()->user->isAdmin()
