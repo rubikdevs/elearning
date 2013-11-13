@@ -45,7 +45,7 @@
 			<div class="form-right-col">
 				<?php echo $model->image_uri ?>
 			</div>
-			<img src="<?php echo $model->image_uri ?>" alt="">
+			<img src="<?php echo $model->image_uri ?>" alt="" class="_100">
 			<input type="hidden" value="<?php echo $model->image_uri ?>" id="image_uri">
 		<?php } ?>
 

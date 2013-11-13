@@ -19,7 +19,7 @@
     }
     Yii::app()->clientScript->registerScript('helpers', '
         baseUrl = '.CJSON::encode(Yii::app()->theme->baseUrl).';
-    ');?>
+    ');
     ?>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
@@ -57,7 +57,7 @@
                             'visible'=>((!Yii::app()->user->isGuest) && Yii::app()->user->canAccess(1))
                         ),
                         array(
-                            'label'=>'<i class="icon-user"></i>Manage Modules', 
+                            'label'=>'<i class="icon-th-large"></i>Manage Modules', 
                             'itemOptions'=>array(
                                 'title'=>'Manage Modules'
                             ), 
@@ -65,7 +65,7 @@
                             'visible'=>((!Yii::app()->user->isGuest) && Yii::app()->user->canAccess(1))
                         ),
                         array(
-                            'label'=>'<i class="icon-user"></i>Examination', 
+                            'label'=>'<i class="icon-file"></i>Examination', 
                             'itemOptions'=>array(
                                 'title'=>'Examination'
                             ), 
@@ -89,7 +89,7 @@
                             'visible'=>((!Yii::app()->user->isGuest) && (Yii::app()->user->isUser()))
                         ),
                         array(
-                            'label'=>'<i class="icon-user"></i>Export', 
+                            'label'=>'<i class="icon-upload"></i>Export', 
                             'itemOptions'=>array(
                                 'title'=>'Export'
                             ), 
@@ -97,7 +97,7 @@
                             'visible'=>((!Yii::app()->user->isGuest) && Yii::app()->user->canAccess(1))
                         ),
 			            array(
-                            'label'=>'<i class="icon-user"></i>Import', 
+                            'label'=>'<i class="icon-download"></i>Import', 
                             'itemOptions'=>array(
                                 'title'=>'Import'
                             ), 

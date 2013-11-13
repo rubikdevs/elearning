@@ -1,8 +1,5 @@
 <?php
 /* @var $this ElearningController */
-/* @var $user USERS */
-	$user = Users::model()->findByPk(Yii::app()->user->getId());
-
 $this->breadcrumbs=array(
 	'Elearning',
 );
@@ -17,7 +14,8 @@ $this->breadcrumbs=array(
 	</thead>
 	<tbody>
 		<?php
-		foreach ($user->UserModuleAssignment as $i=>$module) {
+		/*var_dump($modules);die;
+		foreach ($modules as $i=>$module) {
 			if ($user->modules[$i]->pagesCount >0)
 			{
 				echo '<tr>';
@@ -29,8 +27,28 @@ $this->breadcrumbs=array(
 					echo '<td>'.CHtml::link('Go', array('elearning/page', 'module'=>$module->module_id, 'page_number'=>$module->last_page)).'</td>';
 				echo '</tr>';
 			}
-		}
+		}*/
 
+		foreach ($modules as $i=>$module_assignment)
+		{
+			$module = Modules::model()->findByPk($module_assignment->module_id);
+			if ($module->pagesCount >0)
+			{
+				echo '<tr>';
+				echo '<td>'.$module->module_name.'</td>';
+				echo '<td>'.$module_assignment->last_page.'</td>';
+				if($module_assignment->status == 1)
+					echo '<td> Finished ('.
+						CHtml::link('View',array('elearning/page', 'module'=>$module_assignment->module_id, 'page_number'=>1))
+						.') </td>';
+				elseif ($this->isFirstAssignment($modules,$module))
+					echo '<td>'.CHtml::link('Learn', array('elearning/page', 'module'=>$module_assignment->module_id, 'page_number'=>$module_assignment->last_page)).'</td>';
+				else
+					echo '<td>Learn</td>';
+				echo '</tr>';
+			}
+
+		}
 		?>
 	</tbody>
 	</table>

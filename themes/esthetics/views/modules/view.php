@@ -13,7 +13,7 @@
 
 ?>
 
-<div class="box _75">
+<div class="box _50">
 	<div class="box-header">Viewing Module #<?php  echo $model->module_code;?></div>
 	<table class="static_table" style="border:1px solid #dfdfdf">
 		<tbody>
@@ -33,32 +33,51 @@
 				<td><?php echo $modules['sort_order'] ?></td>
 				<td><?php echo $model->sort_order; ?></td>
 			</tr>
-			<tr>
-				<td>Users assigned</td>
-				<td><?php
-					$toBeTrimmed ='';
-					foreach ($model->users as $user) 
-						 $toBeTrimmed .= $user->username.',';
-					echo rtrim($toBeTrimmed,',');
-				?></td>
-			</tr>
 		</tbody>
 	</table>
 </div>
+<div class="box _25">
+	<div class="box-header">Users assigned</div>
+	<div class="box-content">
+	<table class="static_table" style="border:1px solid #dfdfdf">
+	<tbody>
 
-<div class="_75 padd-10">
+	<?php
+		foreach ($model->users as $user)
+		{
+			echo '<tr>';
+			echo '<td>'.$user->username.'</td>';
+			echo '<td>'.CHtml::link('Unassign',array('unassign','module_id'=>$model->module_code,'user_id'=>$user->id),array('class'=>'red float_r')).'</td>';
+			echo '</tr>';
+		}			
+	?>
+	</tbody>
+	</table>
+	<div class="form-row">
+		<?php 
+		$form=$this->beginWidget('CActiveForm', array('id'=>'assign-form','enableAjaxValidation'=>false,)); 
+		$user = new Users;
+		echo $form->textField($user,'username',array('size'=>10));
+		echo CHtml::submitButton('Assign',array('class'=>'float_r'));
+		$this->endWidget();
+		 ?>
+	</div>
+	</div>	
+</div>
+
+<div class="_50 padd-10">
 <?php echo CHtml::link('<i class="icon-edit"></i>Add Page', array('pages/create', 'module_code'=>$model->module_code),array('class'=>'grey display_but')); ?>
 </div>
 
 <div class="shortable-content">
     
-    <div class="box _75">
+    <div class="box">
         <div class="box-header">Modules</div>
         <div class="box-content">
             <table cellpadding="0" cellspacing="0" border="0" class="dataTable marianTable" id="dynamic" aria-describedby="dynamic_info">
                 <thead>
                     <tr role="row">
-                        <th  role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Create Date">Page Number</th>
+                        <th  role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Create Date">#</th>
                         <th  role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Pages">Page Title</th>
     					<th  role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Sort Order">Sort</th>
     					<th  role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Action">Action</th>               

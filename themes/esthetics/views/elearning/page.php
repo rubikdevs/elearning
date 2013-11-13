@@ -1,19 +1,30 @@
 <?php
 /* @var $this ElearningController */
 
-$this->breadcrumbs=array(
-	'Elearning'=>array('/elearning'),
-	'Page',
-);
+//$this->breadcrumbs=array(
+//	'Elearning'=>array('/elearning'),
+//	'Page',
+//);
 ?>
-<h1> PAGE </h1>
-<?php 
-	echo $page->description;
-?>
-<h1>QUESTION</h1>
-<?php 
-	echo $question->description;
-?>
-<h1>Write Answer</h1>
+<div class="non-shortable-content">
+     <h1><?php echo $page->title ?></h1>
+ </div>
+<div class="box _50">
+	<div class="box-header">Image</div>
+	<div class="box-content padd-10">
+		<img src="<?php echo $page->image_uri ?>" class="_100">
+	</div>
+</div>
+<div class="box _50">
+<div class="box-header">Description</div>
+<div class="box-content padd-10">
+	<?php echo $page->description; ?>
+</div>
+</div>
 
-<?php $this->renderPartial('_form', array('question'=>$question)); ?>
+<?php
+		if ($status)
+			echo CHtml::link('Next',array('elearning/page', 'module'=>$page->module_code, 'page_number'=>$page->page_number+1),array('class'=>'float_r button'));
+		else 
+			echo CHtml::link('Question',array('elearning/qa', 'page_code'=>$page->page_code),array('class'=>'float_r button'));
+	?>

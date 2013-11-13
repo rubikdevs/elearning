@@ -28,7 +28,7 @@ class ModulesController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','listpages','moveUp','moveDown'),
+				'actions'=>array('index','view','listpages','moveUp','moveDown','unassign','delete'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -36,7 +36,7 @@ class ModulesController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -44,6 +44,7 @@ class ModulesController extends Controller
 			),
 		);
 	}
+
 	public function actionMoveUp($id) {
 		$model=$this->loadModel($id);
 		$all = Modules::model()->findAll();
@@ -92,9 +93,43 @@ class ModulesController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
+	public function actionUnassign($module_id,$user_id){
+		$criteria = new CDbCriteria;
+		$criteria->condition = 'module_id = '.$module_id.' AND user_id ='.$user_id;
+		$assignment = UserModuleAssignment::model()->findAll($criteria);
+		$assignment[0]->delete();
+		$this->redirect(array('view','id'=>$module_id));
+	}
 	public function actionView($id)
 	{
+		if (isset($_POST['Users']))
+		{
+			$user = Users::model()->findByAttributes(array('username'=>$_POST['Users']['username']));
+			if (count($user)==0)
+			{
+				$message = 'User <strong>'.$_POST['Users']['username'].'</strong> not found.';
+				$this->render('_error',array(
+					'message'=>$message,
+				));
+			} else
+			{
+				//ASSIGN
+				$assignment = new UserModuleAssignment;
+				$assignment->module_id = $id;
+				$assignment->user_id = $user->id;
+				$assignment->status = 0;
+				$assignment->last_page = 1;
+				$assignment->creator = Yii::app()->user->getUser()->username;
+				if (!$assignment->save())
+				{
+					$message = 'Try again later.';
+					$this->render('_error',array(
+						'message'=>$message,
+					));
+				}
 
+			}
+		}
 		$criteria=new CDbCriteria(array(                    
             'order'=>'page_number asc',
             'condition'=>'module_code='.$id
@@ -117,6 +152,7 @@ class ModulesController extends Controller
 			'pages'=>$pages,
 		));
 	}
+
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -133,7 +169,10 @@ class ModulesController extends Controller
 			$last = Modules::model()->findAll('sort_order=(SELECT max(sort_order) FROM tbl_modules)'); /// MEEEEE
 
 			$model->attributes=$_POST['Modules'];
-			$model->sort_order=$last[0]["sort_order"] + 1;
+			if (count($last)==0)
+				$model->sort_order=1;
+			else
+				$model->sort_order=$last[0]["sort_order"] + 1;
 
 			if($model->save())
 					$this->redirect(array('view','id'=>$model->module_code));

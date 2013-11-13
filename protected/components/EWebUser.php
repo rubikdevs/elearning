@@ -14,6 +14,11 @@ class EWebUser extends CWebUser
         return $this->user_level;       
     }
 
+    public function getUser()
+    {
+        $user = Users::model()->findByPk(Yii::app()->user->getId());
+        return $user;
+    }
 
  
     public function isUser()

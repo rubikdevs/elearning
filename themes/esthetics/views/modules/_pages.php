@@ -14,8 +14,8 @@
                         .CHtml::link('<i class="icon-arrow-down"></i>', array('pages/moveDown', 'id'=>$data->page_code,'module_code'=>$data->module_code),array('class'=>'grey display_but'))
                         .'</td>';
                     echo '<td>'
-                        .CHtml::link('<i class="icon-edit"></i>Edit', array('pages/update', 'id'=>$data->page_code),array('class'=>'grey display_but'))
-                        .CHtml::link('<i class="icon-edit"></i>Delete', array('pages/delete', 'id'=>$data->page_code, 'module_code'=>$data->module_code),array('class'=>'grey display_but'))
+                        .CHtml::link('Edit', array('pages/update', 'id'=>$data->page_code),array('class'=>'grey display_but'))
+                        .CHtml::link('Delete', array('pages/delete', 'id'=>$data->page_code, 'module_code'=>$data->module_code),array('class'=>'grey display_but'))
                         .'</td>';
                     echo '</tr>';
                 
