@@ -20,7 +20,7 @@ $question = new Questions;
 
 
 		
-			<?php echo CHtml::submitButton($question->isNewRecord ? 'Send' : 'Send'); ?>
+			<?php echo CHtml::submitButton($question->isNewRecord ? 'Next' : 'Next'); ?>
 
 
 <?php $this->endWidget(); ?>

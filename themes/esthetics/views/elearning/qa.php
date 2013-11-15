@@ -1,3 +1,7 @@
+<div class="non-shortable-content">
+	<input value="Go Back" type="submit" class="grey" onclick="window.history.back()">
+      
+  </div>
 <div class="box _75">
 <div class="box-header">Question</div>
 <div class="box-content padd-20">
