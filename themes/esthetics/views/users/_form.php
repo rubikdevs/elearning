@@ -38,7 +38,14 @@
 
 					<?php echo $form->error($model,'password'); ?>
 		      </div>
-		      
+
+		       <div class="form-row">
+		       <label for="password"><strong><?php echo $form->labelEx($model,'area'); ?></strong></label>
+		       <div class="form-right-col"><?php echo $form->textField($model,'area',array('class'=>'_100F')); ?></div>
+
+					<?php echo $form->error($model,'area'); ?>
+		      </div>
+
 		   	<div class="form-row">
 		        <label for="select"><strong><?php 			echo $form->labelEx($model,'user_level');?></strong></label>
 		        <div class="form-right-col">

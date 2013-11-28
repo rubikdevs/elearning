@@ -26,6 +26,12 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'area'); ?>
+		<?php echo $form->textField($model,'area',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->error($model,'area'); ?>
+	</div>
+
+	<div class="row">
 	<?php 
 		echo $form->labelEx($model,'user_level');
 

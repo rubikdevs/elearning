@@ -41,6 +41,10 @@ $users = Users::model()->attributeLabels();
                 <td><?php echo $users['password'] ?></td>
                 <td><?php echo $model->password; ?></td>
             </tr>
+             <tr>
+                <td><?php echo $users['area'] ?></td>
+                <td><?php echo $model->area; ?></td>
+            </tr>
             <tr>
                 <td><?php echo $users['user_level'] ?></td>
                 <td><?php if ($model->user_level==0)
@@ -56,7 +60,7 @@ $users = Users::model()->attributeLabels();
                     $toBeTrimmed ='';
                     foreach ($model->modules as $module) 
                         $toBeTrimmed .= $module->module_name.', ';
-                    echo rtrim($toBeTrimmed,',');
+                    echo rtrim($toBeTrimmed,', ');
                 ?></td>
             </tr>
         </tbody>

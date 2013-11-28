@@ -27,7 +27,7 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, user_level', 'required'),
+			array('username, password, user_level, area', 'required'),
 			array('username, password', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -58,6 +58,7 @@ class Users extends CActiveRecord
 			'username' => 'Employee Code',
 			'password' => 'Password',
 			'user_level' => 'User Level',
+			'area'=>'Area',
 		);
 	}
 	public function getHash($password)
