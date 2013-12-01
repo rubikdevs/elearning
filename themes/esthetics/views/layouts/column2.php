@@ -31,7 +31,7 @@
                             <ul style="display: block; "> 
                                 <li><?php echo CHtml::link('</i>Create Module', array('modules/create'),array('class'=>((Yii::app()->getController()->getID()=='modules') and (Yii::app()->getController()->getAction()->controller->action->id=='create'))?'active':'' ));?></li>
                                 <li><?php echo CHtml::link('</i>List Modules', array('modules/index'),array('class'=>((Yii::app()->getController()->getID()=='modules') and (Yii::app()->getController()->getAction()->controller->action->id=='index'))?'active':'' ));?></li> 
-                                <li><a href="#">Report</a></li>
+                                <li><?php echo CHtml::link('</i>Report', array('modules/report'),array('class'=>((Yii::app()->getController()->getID()=='modules') and (Yii::app()->getController()->getAction()->controller->action->id=='index'))?'report':'' ));?></li> 
                             </ul> 
                         </li> 
                 <?php }

@@ -69,7 +69,7 @@ class TestController extends Controller
 			{
 				$pkSubmitted = new SubmittedTest;
 				$pkSubmitted->test_id = $test->primaryKey;
-				$pkSubmitted->answer = 'dd';
+				$pkSubmitted->answer = 'Not Answered';
 				$pkSubmitted->question_id = $PKquestions[$pkPos[$pkId]]->id;
 				$pkSubmitted->number = $j+1;
 				if(!$pkSubmitted->save())
@@ -115,6 +115,7 @@ class TestController extends Controller
 	{
 
 		$difference = $this->getTimeLapsed($test_id);
+
 		if (($last<=50) && ($difference<=45.0)){
 			// LOAD QUESTION
 			$criteria = new CDbCriteria;

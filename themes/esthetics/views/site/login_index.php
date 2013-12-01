@@ -20,20 +20,28 @@
             <strong>Enter your username and password.</strong>
            </td>
           </tr>
+
           <tr>
             <td><label for="username"><strong>username :</strong></label></td>
             <td><?php echo $form->textField($model,'username', array('placeholder'=>'type your username here..')); ?>
+
             </td>
           </tr>
+
           <tr>
             <td><label for="password"><strong>Password :</strong></label></td>
             <td><?php echo $form->passwordField($model,'password', array('placeholder'=>'type your password here..')); ?></td>
           </tr>
           <tr>
             <td colspan="2" align="right">
+            <span style="color:red; margin-right:20px"><?php
+              if (isset($message))
+                echo $message;
+              ?></span>
              <?php echo $form->checkBox($model,'rememberMe', array('class'=>'styled', 'checked'=>'checked')); ?>
             <?php echo $form->label($model,'Remember me!'); ?>
             <?php echo $form->error($model,'rememberMe'); ?>
+
             </td>
           </tr>
         </table>
