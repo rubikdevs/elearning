@@ -73,7 +73,7 @@
                             'itemOptions'=>array(
                                 'title'=>'Examination'
                             ), 
-                            'url'=>array('/users'), 
+                            'url'=>array('/test/manage'), 
                             'visible'=>!Yii::app()->user->isGuest
                         ),
                         array(

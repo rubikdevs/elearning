@@ -35,7 +35,11 @@ $this->breadcrumbs=array(
 				{
 					echo '<td>'.$test->start_time.'</td>';
 					echo '<td>FINISHED</td>';
-					echo '<td>'.$this->getResult($test->id).'</td>';
+					echo '<td> '
+					.($this->isApproved($test->id) ? 'APPROVED' : 'FAILED').' - '
+					.$this->getResult('Product Knowledge',$test->id).'/40 - '
+					.$this->getResult('Customer Handling',$test->id)
+					.'/10</td>';
 				}
 				echo '</tr>';
 			}

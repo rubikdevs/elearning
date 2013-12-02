@@ -35,6 +35,14 @@
                             </ul> 
                         </li> 
                 <?php }
+                    if((Yii::app()->controller->id=="test"))
+                        { ?>
+                            <li> <a href="#" class="nav-top-item current">Test Functions</a> 
+                                <ul style="display: block; "> 
+                                    <li><?php echo CHtml::link('</i>Add Question', array('test/addQuestion'),array('class'=>((Yii::app()->getController()->getID()=='modules') and (Yii::app()->getController()->getAction()->controller->action->id=='create'))?'active':'' ));?></li>
+                                </ul> 
+                            </li> 
+                    <?php }
                 } ?>
                  </ul> 
             </aside>
