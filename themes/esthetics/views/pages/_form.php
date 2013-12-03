@@ -78,6 +78,16 @@
 		<?php echo $form->error($question,'correct_answer'); ?>
 	</div>
 	
+	<div class="form-row">
+		<label for="description">
+			<strong><?php echo $form->labelEx($model,'minimum_time'); ?></strong>
+		</label>
+		<div class="form-right-col">
+			<?php echo $form->textArea($model,'minimum_time',array('rows'=>2, 'cols'=>50, 'class'=>'100F')); ?>
+		</div>
+		<?php echo $form->error($model,'minimum_time'); ?>
+	</div>
+	
 
 	<div class="form-row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

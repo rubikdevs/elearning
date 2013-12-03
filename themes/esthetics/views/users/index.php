@@ -6,7 +6,7 @@
 <div class="padd-30"></div>
 <div class="shortable-content">
     
-    <div class="box _75">
+    <div class="box _100">
         <div class="box-header">Users</div>
         <div class="box-content">
             <table cellpadding="0" cellspacing="0" border="0" class="dataTable dTable" id="dynamic" aria-describedby="dynamic_info">
@@ -14,6 +14,7 @@
                     <tr role="row">
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Employee Code">Employee Code</th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="User Level">User Level</th>
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Area">Area</th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="dynamic" rowspan="1" colspan="1" aria-label="Action">Action</th>
                     </tr>
                 </thead>

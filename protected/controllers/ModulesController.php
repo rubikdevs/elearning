@@ -28,7 +28,7 @@ class ModulesController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','listpages','moveUp','moveDown','unassign','delete'),
+				'actions'=>array('index','view','listpages','moveUp','moveDown','unassign','delete','report'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -43,6 +43,24 @@ class ModulesController extends Controller
 				'users'=>array('*'),
 			),
 		);
+	}
+
+	public function actionReport(){
+		// MODELS
+		if (isset($_POST['Users'])){
+			$user = Users::model()->findAll('username = "'.$_POST['Users']['username'].'"');
+			if(!empty($user))
+			{
+				$this->render('_report_table', array('user' => $user[0]));
+			}	
+			else 
+				$message = $_POST['Users']['username'].' not found.';
+		}
+
+		$this->render('report', array(
+			'userForm'=> new Users,
+			'message'=> (isset($message)) ? $message : null ,
+			));
 	}
 
 	public function actionMoveUp($id) {

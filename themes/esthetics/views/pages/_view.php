@@ -25,5 +25,10 @@
 	<?php echo CHtml::encode($data->answer); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('minimum_time')); ?>:</b>
+	<?php echo CHtml::encode($data->minimum_time); ?>
+	<br />
+
+
 
 </div>

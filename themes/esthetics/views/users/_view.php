@@ -17,6 +17,7 @@
                             echo 'Admin';
                         else
                             echo 'Super Admin'; ?></td>
+    <td><?php echo $data->area; ?></td>
     <td><?php
     	echo CHtml::link('<i class="icon-edit"></i>Manage Module', array('assign', 'id'=>CHtml::encode($data->id)), array('class'=>'grey display_but'));
     	echo CHtml::link('<i class="icon-edit"></i>Edit', array('update', 'id'=>CHtml::encode($data->id)), array('class'=>'grey display_but'));

@@ -16,6 +16,55 @@ class TestController extends Controller
 			));
 	}
 
+	public function actionManage()
+	{
+		$dataProvider=new CActiveDataProvider('QuestionTest');
+		$this->render('manage',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
+	public function actionAddQuestion()
+	{
+		$model=new QuestionTest;
+
+		if(isset($_POST['QuestionTest']))
+		{
+			$model->attributes=$_POST['QuestionTest'];
+			if($model->save())
+				$this->redirect(array('manage'));
+		}
+
+		$this->render('create',array(
+			'model'=>$model,
+		));
+	}
+	public function actionUpdateQuestion($id)
+	{
+		$model=QuestionTest::model()->findByPk($id);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['QuestionTest']))
+		{
+			$model->attributes=$_POST['QuestionTest'];
+			if($model->save())
+				$this->redirect(array('manage'));
+		}
+
+		$this->render('update',array(
+			'model'=>$model,
+		));
+	}
+	public function actionDeleteQuestion($id)
+	{
+		$question = QuestionTest::model()->findByPk($id);
+		$question->delete();
+		
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('manage'));
+	}
 	public function actionTake($last=null,$test_id=null,$start=null)
 	{
 		// LOAD ALL QUESTIONS AND SET TIMER
@@ -33,76 +82,38 @@ class TestController extends Controller
 			$PKquestions = QuestionTest::model()->findAll("category='Product Knowledge'");
 			$CHquestions = QuestionTest::model()->findAll("category='Customer Handling'");
 
-			// CREATE ARRAYs WITH TOTAL Id's
-			$pkIds = array();
-			$pkPos = array(); // de vago
-			$i=0;
-			foreach ($PKquestions as $i => $question) {
-				$pkIds[] = $question->id;
-				$pkPos[$question->id] = $i;  // de vago
-			}
+			shuffle($PKquestions);
+			shuffle($CHquestions);
 
-			$chIds = array();
-			$chPos = array();
-			$i=0;
-			foreach ($CHquestions as $i => $question) {
-				$chIds[] = $question->id;
-				$chPos[$question->id] = $i;
-			}
+			$PKchosed = array_rand($PKquestions,40);
+			$CHchosed = array_rand($CHquestions,10);
 
-			// CHOSE 40 PK QUESTIONS
-			$chosed=array();
-			for ($i=0; $i<40 ; $i++) { 
-				$gotRandom = false;
-				while (!$gotRandom)
-				{
-					$random = rand(min($pkIds),max($pkIds));
-					if ((!in_array($random,$chosed)) && (in_array($random, $pkIds)))
-					{
-						$chosed[]=$random;
-						$gotRandom=true;
-					}
-				}
-			}
 			// CREATE SUBMITTED QUESTIONS FROM CHOSED	
-			foreach ($chosed as $j => $pkId) 
+			foreach ($PKchosed as $j => $pkId) 
 			{
 				$pkSubmitted = new SubmittedTest;
 				$pkSubmitted->test_id = $test->primaryKey;
-				$pkSubmitted->answer = 'dd';
-				$pkSubmitted->question_id = $PKquestions[$pkPos[$pkId]]->id;
+				$pkSubmitted->answer = 'Not Answered';
+				$pkSubmitted->question_id = $PKquestions[$pkId]->id;
 				$pkSubmitted->number = $j+1;
 				if(!$pkSubmitted->save())
 					{var_dump($pkSubmitted->getErrors());die;}
 			}
 
-			// CHOSE 10 CH QUESTIONS
-			$chosed=array();
-			for ($i=0; $i<10 ; $i++) { 
-				$gotRandom = false;
-				while (!$gotRandom)
-				{
-					$random = rand(min($pkIds),max($pkIds));
-					if ((!in_array($random,$chosed)) && (in_array($random, $pkIds)))
-					{
-						$chosed[]=$random;
-						$gotRandom=true;
-					}
-				}
-			}
 			// CREATE SUBMITTED QUESTIONS FROM CHOSED	
-			foreach ($chosed as $j => $pkId) 
+			foreach ($CHchosed as $k => $chId) 
 			{
 				$chSubmitted = new SubmittedTest;
 				$chSubmitted->test_id = $test->primaryKey;
-				$chSubmitted->answer = 'dd';
-				$chSubmitted->question_id = $PKquestions[$pkPos[$pkId]]->id;
-				$chSubmitted->number = $j+1+40;
+				$chSubmitted->answer = 'Not Answered';
+				$chSubmitted->question_id = $CHquestions[$chId]->id;
+				$chSubmitted->number = $k+1+40;
 				if(!$chSubmitted->save())
 					{var_dump($chSubmitted->getErrors());die;}
 			}
 			$last = $test->last;
 			$test_id = $test->primaryKey;
+
 		}
 
 		$this->redirect(array('question',
@@ -115,6 +126,7 @@ class TestController extends Controller
 	{
 
 		$difference = $this->getTimeLapsed($test_id);
+
 		if (($last<=50) && ($difference<=45.0)){
 			// LOAD QUESTION
 			$criteria = new CDbCriteria;
@@ -180,17 +192,29 @@ class TestController extends Controller
 
 		return ($time1-$time2)/60;
 	}
-	public function getResult($test_id)
+	public function getResult($category,$test_id)
 	{
 		$_test = Test::model()->findByPk($test_id);
 		$scored = 0;
 		foreach ($_test->submittedQuestions as $i => $sQuestion) {
 			$_question = QuestionTest::model()->findByPk($sQuestion->question_id);
-			if ($sQuestion->answer==$_question->correct_answer)
+			if (($sQuestion->answer==$_question->correct_answer) && ($_question->category==$category))
 				$scored++;
 		}
 		return $scored;
 	}
+
+	public function isApproved($test_id)
+	{
+		$CHscore = $this->getResult('Customer Handling',$test_id);
+		$PKscore = $this->getResult('Product Knowledge',$test_id);
+		$score = false;
+		if (($PKscore >= 32) && ($CHscore >= 2))
+			$score = true;
+		return $score;
+	}
+
+
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()

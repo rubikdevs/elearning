@@ -26,7 +26,11 @@
 </head>
 
 <body>  
-    <div class="main _85">
+    <div class="main _85" style="<?php if (Yii::app()->controller->id==="elearning") 
+       echo 'margin-left:100px';
+    ?>">
+   
+
 	   <div id="mainmenu">
             
 
@@ -69,7 +73,7 @@
                             'itemOptions'=>array(
                                 'title'=>'Examination'
                             ), 
-                            'url'=>array('/users'), 
+                            'url'=>array('/test/manage'), 
                             'visible'=>!Yii::app()->user->isGuest
                         ),
                         array(
@@ -107,8 +111,9 @@
                     ),
                         
 		        )); ?>
-
+            </nav>
 	    </div><!-- mainmenu -->
+
     	<?php if(isset($this->breadcrumbs)):?>
     		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
     			'links'=>$this->breadcrumbs,
@@ -117,7 +122,7 @@
 
     	<?php echo $content; ?>
 
-    </div>
+
     </div>
 
 	

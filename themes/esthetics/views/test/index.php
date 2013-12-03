@@ -24,14 +24,22 @@ $this->breadcrumbs=array(
 				echo '<tr>';
 				if ((!$test->status) && ($this->getTimeLapsed($test->id)<=45.0))
 				{
+
 					echo '<td>'.$test->start_time.'</td>';
-					echo '<td>'.CHtml::link('Go',array('take','last'=>$test->last,'test_id'=>$test->id)).'</td>';
+					if ($test->last == 1)
+						echo '<td>'.CHtml::link('Start',array('take','last'=>$test->last,'test_id'=>$test->id)).'</td>';
+					else
+						echo '<td>Last page: '.$test->last.' - '.CHtml::link('Continue',array('take','last'=>$test->last,'test_id'=>$test->id)).'</td>';
 					echo '<td></td>';
 				} else
 				{
 					echo '<td>'.$test->start_time.'</td>';
 					echo '<td>FINISHED</td>';
-					echo '<td>'.$this->getResult($test->id).'</td>';
+					echo '<td> '
+					.($this->isApproved($test->id) ? 'APPROVED' : 'FAILED').' - '
+					.$this->getResult('Product Knowledge',$test->id).'/40 - '
+					.$this->getResult('Customer Handling',$test->id)
+					.'/10</td>';
 				}
 				echo '</tr>';
 			}

@@ -44,3 +44,10 @@
 			<?php echo $question->correct_answer; ?>
 		</div>
 	</div>	
+
+	<div class="box _75">
+		<div class="box-header"> Minimum Time</div>
+		<div class="box-content padd-10">
+			<?php echo $model->minimum_time; ?>
+		</div>
+	</div>	
