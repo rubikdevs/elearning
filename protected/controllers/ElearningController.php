@@ -46,6 +46,17 @@ class ElearningController extends Controller
 
 		$status = $assignment[0]->status;
 
+		if (count($assignment)==0)
+			$this->redirect(array('index'));
+		
+		
+		if (($assignment[0]->last_page != $page_number) && (!$status))
+			$this->redirect(array('page',
+				'module'=>$module,
+				'page_number'=>$assignment[0]->last_page,
+				));
+		
+
 		$this->render('page',array(
 			'page'=>$page[0],
 			'question'=>$question[0],

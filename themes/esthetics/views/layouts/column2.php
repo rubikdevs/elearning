@@ -35,10 +35,11 @@
                             </ul> 
                         </li> 
                 <?php }
-                    if((Yii::app()->controller->id=="test"))
+                    if((Yii::app()->controller->id=="test") or (Yii::app()->controller->id=="answerTest"))
                         { ?>
                             <li> <a href="#" class="nav-top-item current">Test Functions</a> 
                                 <ul style="display: block; "> 
+                                    <li><?php echo CHtml::link('</i>Questions', array('test/manage'),array('class'=>((Yii::app()->getController()->getID()=='modules') and (Yii::app()->getController()->getAction()->controller->action->id=='create'))?'active':'' ));?></li>
                                     <li><?php echo CHtml::link('</i>Add Question', array('test/addQuestion'),array('class'=>((Yii::app()->getController()->getID()=='modules') and (Yii::app()->getController()->getAction()->controller->action->id=='create'))?'active':'' ));?></li>
                                 </ul> 
                             </li> 

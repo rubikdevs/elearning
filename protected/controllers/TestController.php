@@ -23,6 +23,16 @@ class TestController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
+
+	public function actionAnswers($q_id)
+	{
+		$question = QuestionTest::model()->findByPk($q_id);
+
+		$this->render('answers',array(
+			'question'=>$question,
+			));
+	}
+
 	public function actionAddQuestion()
 	{
 		$model=new QuestionTest;
@@ -38,6 +48,7 @@ class TestController extends Controller
 			'model'=>$model,
 		));
 	}
+
 	public function actionUpdateQuestion($id)
 	{
 		$model=QuestionTest::model()->findByPk($id);
@@ -125,9 +136,18 @@ class TestController extends Controller
 	public function actionQuestion($last,$test_id)
 	{
 
-		$difference = $this->getTimeLapsed($test_id);
+		
+		$_test = Test::model()->findByPk($test_id);
+		if (!isset($_test))
+			$this->redirect(array('index'));
+		if ($_test->last != $last)
+			$this->redirect(array('question',
+					'test_id'=>$test_id,
+					'last'=>$_test->last,
+					));
 
-		if (($last<=50) && ($difference<=45.0)){
+		$difference = $this->getTimeLapsed($test_id);
+		if (($last<=50) && ($difference<=45.0)) {
 			// LOAD QUESTION
 			$criteria = new CDbCriteria;
 			$criteria->condition = 'test_id ='.$test_id.' AND number='.$last;
@@ -137,7 +157,6 @@ class TestController extends Controller
 
 			if (isset($_POST['SubmittedTest']))
 			{
-
 				$_squestion->answer = $_POST['SubmittedTest']['answer'];
 
 				if (!$_squestion->save()) {
@@ -167,7 +186,7 @@ class TestController extends Controller
 			$_question = QuestionTest::model()->findByPk($_squestion->question_id);
 
 			$this->render('question',array(
-				'question'=>$_question->question,
+				'question'=>$_question,
 				'page'=>$_squestion->number,
 				));
 		} else

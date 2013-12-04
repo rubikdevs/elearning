@@ -14,19 +14,29 @@
 	<div class="box-content">
 		<div class="form-row">
 		<?php
-			echo $question;
+			echo $question->question;
 		?>
 		</div>
 
-
 		<div class="form-row">
-			<label for="" class="normal-field">
-				<strong>Answer</strong>
-			</label>
-			<div class="form-right-col">
-			<?php echo $form->textField($_squestion,'answer',array('size'=>60,'maxlength'=>300)); ?>
-			<?php echo $form->error($_squestion,'answer'); ?>
+			Select the correct answer:
+			<div class="padd-10">
+			<?php  
+
+			$first = true;
+			foreach ($question->answers as $answer) {
+				if ($first)
+				{
+					echo '<div class="padd-5">'.$form->radioButton($_squestion,'answer',array('value'=>$answer->number, 'checked'=>'checked', 'class'=>'radio')).$answer->description.'</div>';
+					$first = false;
+				} else
+					echo '<div class="padd-5">'.$form->radioButton($_squestion,'answer',array('value'=>$answer->number, 'class'=>'radio','uncheckValue'=>null)).$answer->description.'</div>';
+			}
+			echo $form->error($_squestion, 'answer');
+
+			?>
 			</div>
+			
 		</div>
 
 		<div class="form-row buttons">
